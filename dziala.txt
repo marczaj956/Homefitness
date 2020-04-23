@@ -1,0 +1,56 @@
+zwieksz equ P2.0
+czy_zwieksz equ R5
+
+org 0h
+		jmp start
+	org 0bh
+		jmp licznik_T0	
+		
+		
+start:	mov czy_zwieksz,#0
+		
+		mov P1,#01111111b
+		mov TMOD,#000000001b;//tryb 1 timer 0
+		setb TR0
+		setb ET0
+		setb EA
+		
+		stop:
+		cjne czy_zwieksz,#2,stop
+		mov A,P1
+		RR A
+		mov P1,A
+		jmp omin1
+		
+		omin1:
+		mov czy_zwieksz,#3
+		jmp stop
+	
+licznik_T0:
+mov TH0,#0xff
+jmp omin
+	
+	omin:
+	cjne czy_zwieksz,#0,wyjscie1
+	jb zwieksz,wyjscie
+	mov czy_zwieksz,#1
+	jmp wyjscie
+	
+	wyjscie1:
+	cjne czy_zwieksz,#1,wyjscie2
+	jb zwieksz,wyjscie
+	mov czy_zwieksz,#2
+	
+	jmp wyjscie
+	wyjscie2:
+	cjne czy_zwieksz,#3,wyjscie3
+	jnb zwieksz,wyjscie
+	mov czy_zwieksz,#4
+	jmp wyjscie
+	wyjscie3:
+	cjne czy_zwieksz,#4,wyjscie
+	jnb zwieksz,wyjscie
+	mov czy_zwieksz,#0
+	wyjscie:	
+	reti
+end
