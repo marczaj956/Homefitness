@@ -10,7 +10,7 @@ namespace HomeFitness
     {
         private string name;
         private int weight;
-        private int totalPoints;
+       // private int totalPoints PAMIETAĆ ŻEBY POCIĄGNĄĆ Z NOTATNIKA
         private Achievements achievements;
 
 
@@ -18,7 +18,6 @@ namespace HomeFitness
         {
             this.name = name;
             this.weight = weight;
-            totalPoints = 0;
             achievements = Achievements.BEGINNER;
         }
 
@@ -41,16 +40,6 @@ namespace HomeFitness
         public int getWeight()
         {
             return weight;
-        }
-
-        public int GetTotalPoints()
-        {
-            return totalPoints;
-        }
-
-        public void addPoints (int point)
-        {
-            this.totalPoints += point;
         }
 
     }

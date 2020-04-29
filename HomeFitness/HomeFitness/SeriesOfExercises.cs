@@ -9,11 +9,12 @@ namespace HomeFitness
     class SeriesOfEcercises
     {
         private List<Exercise> series;
+        private int idSeries;
 
-
-        SeriesOfEcercises()
+        SeriesOfEcercises(int id)
         {
             series = new List<Exercise>();
+            this.idSeries = id;
         }
         public void addExercise(Exercise exercise)
         {

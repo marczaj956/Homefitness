@@ -8,23 +8,34 @@ namespace HomeFitness
 {
     class Training
     {
+       private int idTraining; 
        private List<SeriesOfEcercises> training;
-       private DateTime date;
+       private DayOfWeek day;
+       private TimeSpan time;
        private TimeSpan duration;
 
-        Training(DateTime date)
+        Training(int id, DayOfWeek day, TimeSpan time)
         {
-            this.date = date;
+            this.idTraining = id;
+            this.day = day;
+            this.time = time;
         }
-        public void SetDate(DateTime date)
+        public void SetDate(DayOfWeek day)
         {
-            this.date = date;
+            this.day = day;
         }
-        public DateTime GetDate()
+        public DayOfWeek GetDay()
         {
-            return date;
+            return day;
         }
-
+        public void SetTime(TimeSpan time)
+        {
+            this.time = time;
+        }
+        public TimeSpan GetTime()
+        {
+            return time;
+        }
         public void addSeries(SeriesOfEcercises series)
         {
             training.Add(series);

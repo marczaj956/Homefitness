@@ -11,16 +11,19 @@ namespace HomeFitness
         private int amount;
         private int calories;
         private string description;
+        private string exercisedMuscles;
         private string name;
         private int points;
         private Category category;
+   
 
-        Exercise(int amount, int calories, int points, string description, string name, Category category)
+        Exercise(int amount, int calories, int points, string description, string exercisedMuscles, string name, Category category)
         {
             this.amount = amount;
             this.calories = calories;
             this.points = points;
             this.description = description;
+            this.exercisedMuscles = exercisedMuscles;
             this.name = name;
             this.category = category;
         }
