@@ -74,6 +74,13 @@
     <Compile Include="Seria.Designer.cs">
       <DependentUpon>Seria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="Controls\MainPanel\MainControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MainPanel\MainControl.Designer.cs">
+      <DependentUpon>MainControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeriesOfEcercises.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="User.cs" />
@@ -87,6 +94,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\StartTraningPanel\StartTraningControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StartTraningPanel\StartTraningControl.Designer.cs">
+      <DependentUpon>StartTraningControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\MainPanel\MainControl.resx">
+      <DependentUpon>MainControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\StartTraningPanel\StartTraningControl.resx">
+      <DependentUpon>StartTraningControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seria.resx">
       <DependentUpon>Seria.cs</DependentUpon>
     </EmbeddedResource>
