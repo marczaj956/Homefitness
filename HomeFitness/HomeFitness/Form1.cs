@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeFitness.Controls.MainPanel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace HomeFitness
         public Form1()
         {
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new MainControl());
         }
 
         private void cwiczeniaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -80,6 +88,17 @@ namespace HomeFitness
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnRozpocznijTrening_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new StartTraningControl());
         }
     }
 }
