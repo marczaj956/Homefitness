@@ -68,6 +68,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Seria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seria.Designer.cs">
+      <DependentUpon>Seria.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeriesOfEcercises.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="User.cs" />
@@ -93,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Seria.resx">
+      <DependentUpon>Seria.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="bazaDataSet.xsc">
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </None>
