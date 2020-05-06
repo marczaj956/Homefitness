@@ -1,4 +1,5 @@
 ﻿using HomeFitness.Controls.MainPanel;
+using HomeFitness.Controls.SeriesControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,7 +83,8 @@ namespace HomeFitness
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new SeriesControl());
         }
 
         private void label9_Click(object sender, EventArgs e)
