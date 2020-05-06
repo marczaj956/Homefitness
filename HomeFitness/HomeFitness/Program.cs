@@ -16,7 +16,8 @@ namespace HomeFitness
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Seria());
+
+            Application.Run(new Form1());
         }
     }
 }
