@@ -41,8 +41,8 @@ namespace HomeFitness.Controls.AchPanel
 
                     file.Close();
                 }
-                else { File.Create(filePath); 
-                
+                else { 
+                    File.Create(filePath).Close();
                 }
             }
 
@@ -62,7 +62,7 @@ namespace HomeFitness.Controls.AchPanel
 
                 file.Close();
                 }
-                else File.Create(filePath);
+                else File.Create(filePath).Close();
             }
 
 
@@ -122,7 +122,7 @@ namespace HomeFitness.Controls.AchPanel
                 string filePath = @"Waga" + extension;
 
 
-                if (!File.Exists(filePath)) File.Create(filePath);
+                if (!File.Exists(filePath)) File.Create(filePath).Close();
                 else 
                 {
 
@@ -148,7 +148,7 @@ namespace HomeFitness.Controls.AchPanel
                 string extension = ".txt";
                 string filePath = @"Cel" + extension;
                 if (!File.Exists(filePath))
-                File.Create(filePath);
+                File.Create(filePath).Close();
                 else
                 {
                     using (TextWriter TW = new StreamWriter(filePath))

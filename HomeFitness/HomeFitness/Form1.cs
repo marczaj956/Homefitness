@@ -1,4 +1,5 @@
 ﻿using HomeFitness.Controls.AchPanel;
+using HomeFitness.Controls.exbase;
 using HomeFitness.Controls.MainPanel;
 using HomeFitness.Controls.SeriesControl;
 using System;
@@ -79,7 +80,8 @@ namespace HomeFitness
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new exbase());
         }
 
         private void button3_Click(object sender, EventArgs e)
