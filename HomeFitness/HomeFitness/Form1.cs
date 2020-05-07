@@ -1,4 +1,5 @@
-﻿using HomeFitness.Controls.MainPanel;
+﻿using HomeFitness.Controls.AchPanel;
+using HomeFitness.Controls.MainPanel;
 using HomeFitness.Controls.SeriesControl;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,28 @@ namespace HomeFitness
         {
             MainPanel.Controls.Clear();
             MainPanel.Controls.Add(new StartTraningControl());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Ach());
+
+           
+
+        }
+
+        private void dodajĆwiczenieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kontrolujWageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Ach());
+
+           
         }
     }
 }

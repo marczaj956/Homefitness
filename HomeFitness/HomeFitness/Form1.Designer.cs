@@ -41,9 +41,6 @@
             this.dodajTreningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrolaWagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrolujWageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wprowadźDaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.postępToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statystykiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocTechnicznaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
@@ -83,7 +80,6 @@
             this.bazaĆwiczeńToolStripMenuItem,
             this.treningToolStripMenuItem,
             this.kontrolaWagiToolStripMenuItem,
-            this.postępToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -125,8 +121,9 @@
             // dodajĆwiczenieToolStripMenuItem
             // 
             this.dodajĆwiczenieToolStripMenuItem.Name = "dodajĆwiczenieToolStripMenuItem";
-            this.dodajĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.dodajĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dodajĆwiczenieToolStripMenuItem.Text = "Dodaj ćwiczenie";
+            this.dodajĆwiczenieToolStripMenuItem.Click += new System.EventHandler(this.dodajĆwiczenieToolStripMenuItem_Click);
             // 
             // treningToolStripMenuItem
             // 
@@ -134,7 +131,7 @@
             this.podglądToolStripMenuItem1,
             this.dodajTreningToolStripMenuItem});
             this.treningToolStripMenuItem.Name = "treningToolStripMenuItem";
-            this.treningToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
+            this.treningToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
             this.treningToolStripMenuItem.Text = "Trening";
             // 
             // podglądToolStripMenuItem1
@@ -152,37 +149,17 @@
             // kontrolaWagiToolStripMenuItem
             // 
             this.kontrolaWagiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kontrolujWageToolStripMenuItem,
-            this.wprowadźDaneToolStripMenuItem});
+            this.kontrolujWageToolStripMenuItem});
             this.kontrolaWagiToolStripMenuItem.Name = "kontrolaWagiToolStripMenuItem";
             this.kontrolaWagiToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
-            this.kontrolaWagiToolStripMenuItem.Text = "Kontrola wagi";
+            this.kontrolaWagiToolStripMenuItem.Text = "Postęp i waga";
             // 
             // kontrolujWageToolStripMenuItem
             // 
             this.kontrolujWageToolStripMenuItem.Name = "kontrolujWageToolStripMenuItem";
-            this.kontrolujWageToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.kontrolujWageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kontrolujWageToolStripMenuItem.Text = "Podlgąd";
-            // 
-            // wprowadźDaneToolStripMenuItem
-            // 
-            this.wprowadźDaneToolStripMenuItem.Name = "wprowadźDaneToolStripMenuItem";
-            this.wprowadźDaneToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.wprowadźDaneToolStripMenuItem.Text = "Wprowadź dane";
-            // 
-            // postępToolStripMenuItem
-            // 
-            this.postępToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statystykiToolStripMenuItem});
-            this.postępToolStripMenuItem.Name = "postępToolStripMenuItem";
-            this.postępToolStripMenuItem.Size = new System.Drawing.Size(55, 22);
-            this.postępToolStripMenuItem.Text = "Postęp";
-            // 
-            // statystykiToolStripMenuItem
-            // 
-            this.statystykiToolStripMenuItem.Name = "statystykiToolStripMenuItem";
-            this.statystykiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.statystykiToolStripMenuItem.Text = "Statystyki";
+            this.kontrolujWageToolStripMenuItem.Click += new System.EventHandler(this.kontrolujWageToolStripMenuItem_Click);
             // 
             // pomocToolStripMenuItem
             // 
@@ -238,6 +215,7 @@
             this.button5.TabIndex = 10;
             this.button5.Text = "Postęp i waga";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -347,9 +325,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem kontrolaWagiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kontrolujWageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wprowadźDaneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem postępToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statystykiToolStripMenuItem;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnRozpocznijTrening;

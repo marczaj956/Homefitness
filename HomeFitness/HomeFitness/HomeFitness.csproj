@@ -68,6 +68,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bazaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AchPanel\Ach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AchPanel\Ach.Designer.cs">
+      <DependentUpon>Ach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SeriesControl\SeriesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Controls\StartTraningPanel\StartTraningControl.Designer.cs">
       <DependentUpon>StartTraningControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\AchPanel\Ach.resx">
+      <DependentUpon>Ach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MainPanel\MainControl.resx">
       <DependentUpon>MainControl.cs</DependentUpon>
     </EmbeddedResource>
