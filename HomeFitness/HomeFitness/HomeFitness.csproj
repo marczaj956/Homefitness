@@ -94,6 +94,12 @@
     <Compile Include="Controls\MainPanel\MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TreningControl\Trening_click.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TreningControl\Trening_click.Designer.cs">
+      <DependentUpon>Trening_click.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeriesOfEcercises.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="User.cs" />
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SeriesControl\SeriesControl.resx">
       <DependentUpon>SeriesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TreningControl\Trening_click.resx">
+      <DependentUpon>Trening_click.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

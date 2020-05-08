@@ -2,6 +2,7 @@
 using HomeFitness.Controls.exbase;
 using HomeFitness.Controls.MainPanel;
 using HomeFitness.Controls.SeriesControl;
+using HomeFitness.Controls.Trening;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +98,9 @@ namespace HomeFitness
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Trening_click());
+
         }
 
         private void btnRozpocznijTrening_Click(object sender, EventArgs e)
