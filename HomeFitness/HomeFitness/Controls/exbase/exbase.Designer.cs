@@ -28,30 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dODAJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uSUŃĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eDYTUJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.bazaDataSet = new HomeFitness.bazaDataSet();
+            this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.wybierzĆwiczenieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edytujĆwiczenieToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cwiczeniaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -87,13 +101,46 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.listView1);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
-            this.splitContainer1.Panel2.Controls.Add(this.listBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
             this.splitContainer1.Size = new System.Drawing.Size(1035, 622);
             this.splitContainer1.SplitterDistance = 249;
             this.splitContainer1.TabIndex = 17;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(7, 240);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(225, 361);
+            this.richTextBox1.TabIndex = 57;
+            this.richTextBox1.Text = "";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(7, 189);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(225, 22);
+            this.textBox3.TabIndex = 56;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(7, 87);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(225, 22);
+            this.textBox2.TabIndex = 55;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(3, 213);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 24);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Opis";
             // 
             // label5
             // 
@@ -162,82 +209,6 @@
             this.comboBox1.Size = new System.Drawing.Size(225, 24);
             this.comboBox1.TabIndex = 50;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(3, 213);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 24);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "Opis";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(7, 87);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 22);
-            this.textBox2.TabIndex = 55;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(7, 189);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 22);
-            this.textBox3.TabIndex = 56;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(128, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 24);
-            this.label7.TabIndex = 59;
-            this.label7.Text = "Lista ćwiczeń:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(7, 69);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(758, 532);
-            this.listBox1.TabIndex = 60;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dODAJĆWICZENIEToolStripMenuItem,
-            this.uSUŃĆWICZENIEToolStripMenuItem,
-            this.eDYTUJĆWICZENIEToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(782, 30);
-            this.menuStrip1.TabIndex = 61;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // dODAJĆWICZENIEToolStripMenuItem
-            // 
-            this.dODAJĆWICZENIEToolStripMenuItem.Name = "dODAJĆWICZENIEToolStripMenuItem";
-            this.dODAJĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.dODAJĆWICZENIEToolStripMenuItem.Text = "DODAJ ĆWICZENIE";
-            // 
-            // uSUŃĆWICZENIEToolStripMenuItem
-            // 
-            this.uSUŃĆWICZENIEToolStripMenuItem.Name = "uSUŃĆWICZENIEToolStripMenuItem";
-            this.uSUŃĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.uSUŃĆWICZENIEToolStripMenuItem.Text = "USUŃ ĆWICZENIE";
-            // 
-            // eDYTUJĆWICZENIEToolStripMenuItem
-            // 
-            this.eDYTUJĆWICZENIEToolStripMenuItem.Name = "eDYTUJĆWICZENIEToolStripMenuItem";
-            this.eDYTUJĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
-            this.eDYTUJĆWICZENIEToolStripMenuItem.Text = "EDYTUJ ĆWICZENIE";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -248,13 +219,116 @@
             this.label8.TabIndex = 59;
             this.label8.Text = "Dostępne ćwiczenia:";
             // 
-            // richTextBox1
+            // menuStrip1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 240);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(225, 361);
-            this.richTextBox1.TabIndex = 57;
-            this.richTextBox1.Text = "";
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dODAJĆWICZENIEToolStripMenuItem,
+            this.uSUŃĆWICZENIEToolStripMenuItem,
+            this.eDYTUJĆWICZENIEToolStripMenuItem,
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(782, 28);
+            this.menuStrip1.TabIndex = 61;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dODAJĆWICZENIEToolStripMenuItem
+            // 
+            this.dODAJĆWICZENIEToolStripMenuItem.Name = "dODAJĆWICZENIEToolStripMenuItem";
+            this.dODAJĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.dODAJĆWICZENIEToolStripMenuItem.Text = "DODAJ ĆWICZENIE";
+            this.dODAJĆWICZENIEToolStripMenuItem.Click += new System.EventHandler(this.dODAJĆWICZENIEToolStripMenuItem_Click);
+            // 
+            // uSUŃĆWICZENIEToolStripMenuItem
+            // 
+            this.uSUŃĆWICZENIEToolStripMenuItem.Name = "uSUŃĆWICZENIEToolStripMenuItem";
+            this.uSUŃĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.uSUŃĆWICZENIEToolStripMenuItem.Text = "USUŃ ĆWICZENIE";
+            this.uSUŃĆWICZENIEToolStripMenuItem.Click += new System.EventHandler(this.uSUŃĆWICZENIEToolStripMenuItem_Click);
+            // 
+            // eDYTUJĆWICZENIEToolStripMenuItem
+            // 
+            this.eDYTUJĆWICZENIEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wybierzĆwiczenieToolStripMenuItem,
+            this.edytujĆwiczenieToolStripMenuItem1});
+            this.eDYTUJĆWICZENIEToolStripMenuItem.Name = "eDYTUJĆWICZENIEToolStripMenuItem";
+            this.eDYTUJĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.eDYTUJĆWICZENIEToolStripMenuItem.Text = "EDYTUJ ĆWICZENIE";
+            // 
+            // bazaDataSet
+            // 
+            this.bazaDataSet.DataSetName = "bazaDataSet";
+            this.bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cwiczeniaBindingSource
+            // 
+            this.cwiczeniaBindingSource.DataMember = "Cwiczenia";
+            this.cwiczeniaBindingSource.DataSource = this.bazaDataSet;
+            // 
+            // cwiczeniaTableAdapter
+            // 
+            this.cwiczeniaTableAdapter.ClearBeforeFill = true;
+            // 
+            // oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem
+            // 
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Name = "oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem";
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Text = "ODŚWIEŻ LISTE ĆWICZEŃ";
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Click += new System.EventHandler(this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(7, 61);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(772, 561);
+            this.listView1.TabIndex = 62;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nazwa";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Kalorie";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Mięśnie";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Opis";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Ilość";
+            // 
+            // wybierzĆwiczenieToolStripMenuItem
+            // 
+            this.wybierzĆwiczenieToolStripMenuItem.Name = "wybierzĆwiczenieToolStripMenuItem";
+            this.wybierzĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
+            this.wybierzĆwiczenieToolStripMenuItem.Text = "Wybierz ćwiczenie do edycji";
+            // 
+            // edytujĆwiczenieToolStripMenuItem1
+            // 
+            this.edytujĆwiczenieToolStripMenuItem1.Name = "edytujĆwiczenieToolStripMenuItem1";
+            this.edytujĆwiczenieToolStripMenuItem1.Size = new System.Drawing.Size(279, 26);
+            this.edytujĆwiczenieToolStripMenuItem1.Text = "Edytuj ćwiczenie";
             // 
             // exbase
             // 
@@ -272,6 +346,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cwiczeniaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,12 +366,23 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dODAJĆWICZENIEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uSUŃĆWICZENIEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eDYTUJĆWICZENIEToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private bazaDataSet bazaDataSet;
+        private System.Windows.Forms.BindingSource cwiczeniaBindingSource;
+        private bazaDataSetTableAdapters.CwiczeniaTableAdapter cwiczeniaTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ToolStripMenuItem wybierzĆwiczenieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edytujĆwiczenieToolStripMenuItem1;
     }
 }
