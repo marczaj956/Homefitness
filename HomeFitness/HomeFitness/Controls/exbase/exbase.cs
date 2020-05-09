@@ -20,6 +20,7 @@ namespace HomeFitness.Controls.exbase
         {
             InitializeComponent();
             //inicjalizacja polaczenia do bazy
+           
             conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
             pokabaze();
         }
