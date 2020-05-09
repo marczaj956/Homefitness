@@ -41,15 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dODAJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uSUŃĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eDYTUJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bazaDataSet = new HomeFitness.bazaDataSet();
-            this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
-            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,8 +48,17 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label8 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dODAJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uSUŃĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eDYTUJĆWICZENIEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wybierzĆwiczenieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edytujĆwiczenieToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bazaDataSet = new HomeFitness.bazaDataSet();
+            this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -209,6 +209,51 @@
             this.comboBox1.Size = new System.Drawing.Size(225, 24);
             this.comboBox1.TabIndex = 50;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(7, 61);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(772, 561);
+            this.listView1.TabIndex = 62;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 40;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nazwa";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Kalorie";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Mięśnie";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Opis";
+            this.columnHeader4.Width = 400;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Ilość";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -256,6 +301,25 @@
             this.eDYTUJĆWICZENIEToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.eDYTUJĆWICZENIEToolStripMenuItem.Text = "EDYTUJ ĆWICZENIE";
             // 
+            // wybierzĆwiczenieToolStripMenuItem
+            // 
+            this.wybierzĆwiczenieToolStripMenuItem.Name = "wybierzĆwiczenieToolStripMenuItem";
+            this.wybierzĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
+            this.wybierzĆwiczenieToolStripMenuItem.Text = "Wybierz ćwiczenie do edycji";
+            // 
+            // edytujĆwiczenieToolStripMenuItem1
+            // 
+            this.edytujĆwiczenieToolStripMenuItem1.Name = "edytujĆwiczenieToolStripMenuItem1";
+            this.edytujĆwiczenieToolStripMenuItem1.Size = new System.Drawing.Size(279, 26);
+            this.edytujĆwiczenieToolStripMenuItem1.Text = "Edytuj ćwiczenie";
+            // 
+            // oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem
+            // 
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Name = "oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem";
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Text = "ODŚWIEŻ LISTE ĆWICZEŃ";
+            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Click += new System.EventHandler(this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem_Click);
+            // 
             // bazaDataSet
             // 
             this.bazaDataSet.DataSetName = "bazaDataSet";
@@ -269,66 +333,6 @@
             // cwiczeniaTableAdapter
             // 
             this.cwiczeniaTableAdapter.ClearBeforeFill = true;
-            // 
-            // oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem
-            // 
-            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Name = "oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem";
-            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Text = "ODŚWIEŻ LISTE ĆWICZEŃ";
-            this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem.Click += new System.EventHandler(this.oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(7, 61);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(772, 561);
-            this.listView1.TabIndex = 62;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Nazwa";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Kalorie";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Mięśnie";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Opis";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Ilość";
-            // 
-            // wybierzĆwiczenieToolStripMenuItem
-            // 
-            this.wybierzĆwiczenieToolStripMenuItem.Name = "wybierzĆwiczenieToolStripMenuItem";
-            this.wybierzĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
-            this.wybierzĆwiczenieToolStripMenuItem.Text = "Wybierz ćwiczenie do edycji";
-            // 
-            // edytujĆwiczenieToolStripMenuItem1
-            // 
-            this.edytujĆwiczenieToolStripMenuItem1.Name = "edytujĆwiczenieToolStripMenuItem1";
-            this.edytujĆwiczenieToolStripMenuItem1.Size = new System.Drawing.Size(279, 26);
-            this.edytujĆwiczenieToolStripMenuItem1.Text = "Edytuj ćwiczenie";
             // 
             // exbase
             // 
