@@ -16,6 +16,7 @@ namespace HomeFitness.Controls.exbase
     {
       
        string conS; //connectionString do bazy
+       string toEdit; 
         public exbase()
         {
             InitializeComponent();
@@ -91,6 +92,38 @@ namespace HomeFitness.Controls.exbase
             da.SelectCommand.ExecuteNonQuery();
             cn.Close();
             MessageBox.Show("Usunięto ćwiczenie");
+        }
+
+        private void wybierzĆwiczenieToolStripMenuItem_Click(object sender, EventArgs e) // wybor edytowania cwiczenia
+        {
+           string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
+            toEdit = input;
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia where Nr_cwiczenia='"+input+"' ", cn);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                textBox1.Text = dr["Nazwa"].ToString();
+                textBox2.Text = dr["Spalone_kalorie"].ToString();
+                comboBox1.Text = dr["Cwiczone_miesnie"].ToString();
+                textBox3.Text = dr["Zalecana_ilosc"].ToString();
+                richTextBox1.Text = dr["Opis"].ToString();
+            }
+            cn.Close();
+            MessageBox.Show("Wybrano ćwiczenie do edycji");
+        }
+
+        private void edytujĆwiczenieToolStripMenuItem1_Click(object sender, EventArgs e) //edytuj cwiczenie
+        {
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox1.Text + "',Spalone_kalorie='" + textBox2.Text + "',Cwiczone_miesnie='" + comboBox1.Text + "',Opis='" + richTextBox1.Text + "',Zalecana_ilosc='" + textBox3.Text + "' where Nr_cwiczenia="+toEdit+"", cn);
+            da.SelectCommand.ExecuteNonQuery();
+            cn.Close();
+            MessageBox.Show("Poprawnie zedytowano ćwiczenie");
         }
     }
 }

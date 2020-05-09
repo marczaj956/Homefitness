@@ -306,12 +306,14 @@
             this.wybierzĆwiczenieToolStripMenuItem.Name = "wybierzĆwiczenieToolStripMenuItem";
             this.wybierzĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.wybierzĆwiczenieToolStripMenuItem.Text = "Wybierz ćwiczenie do edycji";
+            this.wybierzĆwiczenieToolStripMenuItem.Click += new System.EventHandler(this.wybierzĆwiczenieToolStripMenuItem_Click);
             // 
             // edytujĆwiczenieToolStripMenuItem1
             // 
             this.edytujĆwiczenieToolStripMenuItem1.Name = "edytujĆwiczenieToolStripMenuItem1";
             this.edytujĆwiczenieToolStripMenuItem1.Size = new System.Drawing.Size(279, 26);
             this.edytujĆwiczenieToolStripMenuItem1.Text = "Edytuj ćwiczenie";
+            this.edytujĆwiczenieToolStripMenuItem1.Click += new System.EventHandler(this.edytujĆwiczenieToolStripMenuItem1_Click);
             // 
             // oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem
             // 
