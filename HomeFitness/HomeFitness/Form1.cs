@@ -1,5 +1,8 @@
-﻿using HomeFitness.Controls.MainPanel;
+﻿using HomeFitness.Controls.AchPanel;
+using HomeFitness.Controls.exbase;
+using HomeFitness.Controls.MainPanel;
 using HomeFitness.Controls.SeriesControl;
+using HomeFitness.Controls.Trening;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,7 +81,8 @@ namespace HomeFitness
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new exbase());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -94,13 +98,37 @@ namespace HomeFitness
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Trening_click());
+
         }
 
         private void btnRozpocznijTrening_Click(object sender, EventArgs e)
         {
             MainPanel.Controls.Clear();
             MainPanel.Controls.Add(new StartTraningControl());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Ach());
+
+           
+
+        }
+
+        private void dodajĆwiczenieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kontrolujWageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Ach());
+
+           
         }
     }
 }
