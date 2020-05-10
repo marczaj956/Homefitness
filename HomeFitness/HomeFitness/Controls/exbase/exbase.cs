@@ -52,17 +52,64 @@ namespace HomeFitness.Controls.exbase
 
         }
 
-        private void dODAJĆWICZENIEToolStripMenuItem_Click(object sender, EventArgs e) //dodawanie cwiczenia
+
+   
+
+        private void button4_Click(object sender, EventArgs e) //dodanie do bazy
         {
             SqlConnection cn = new SqlConnection(conS);
             cn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Cwiczenia (Nazwa,Spalone_kalorie,Cwiczone_miesnie,Opis,Zalecana_ilosc) VALUES('"+textBox1.Text+"','"+textBox2.Text+"','"+comboBox1.Text+ "','"+richTextBox1.Text+"','" + textBox3.Text + "')", cn);
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Cwiczenia (Nazwa,Spalone_kalorie,Cwiczone_miesnie,Opis,Zalecana_ilosc) VALUES('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.Text + "','" + richTextBox1.Text + "','" + textBox3.Text + "')", cn);
             da.SelectCommand.ExecuteNonQuery();
             cn.Close();
             MessageBox.Show("Dodano ćwiczenie");
         }
 
-        private void oDŚWIEŻLISTEĆWICZEŃToolStripMenuItem_Click(object sender, EventArgs e) //odswiezanie
+        private void button3_Click(object sender, EventArgs e) // usuwanie z bazy
+        {
+           // string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz usunąć", "Usuwanie ćwiczenia", "");
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            SqlDataAdapter da = new SqlDataAdapter("DELETE from Cwiczenia WHERE NR_cwiczenia='" + textBox8.Text + "'", cn);
+            da.SelectCommand.ExecuteNonQuery();
+            cn.Close();
+            MessageBox.Show("Usunięto ćwiczenie");
+        }
+
+        private void button1_Click(object sender, EventArgs e) // wybranei cwiczenia do edycji
+        {
+            //string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
+            string input = textBox7.Text;
+            toEdit = input;
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia where Nr_cwiczenia='" + input + "' ", cn);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                textBox6.Text = dr["Nazwa"].ToString();
+                textBox5.Text = dr["Spalone_kalorie"].ToString();
+                comboBox2.Text = dr["Cwiczone_miesnie"].ToString();
+                textBox4.Text = dr["Zalecana_ilosc"].ToString();
+                richTextBox2.Text = dr["Opis"].ToString();
+            }
+            cn.Close();
+            MessageBox.Show("Wybrano ćwiczenie do edycji");
+        }
+
+        private void button2_Click(object sender, EventArgs e) //edycja ćwiczenia
+        {
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox6.Text + "',Spalone_kalorie='" + textBox5.Text + "',Cwiczone_miesnie='" + comboBox2.Text + "',Opis='" + richTextBox2.Text + "',Zalecana_ilosc='" + textBox4.Text + "' where Nr_cwiczenia=" + toEdit + "", cn);
+            da.SelectCommand.ExecuteNonQuery();
+            cn.Close();
+            MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+        }
+
+        private void button5_Click(object sender, EventArgs e) //odśweiżanie
         {
             listView1.Items.Clear();
             SqlConnection cn = new SqlConnection(conS);
@@ -81,49 +128,6 @@ namespace HomeFitness.Controls.exbase
                 listView1.Items.Add(item);
             }
             cn.Close();
-        }
-
-        private void uSUŃĆWICZENIEToolStripMenuItem_Click(object sender, EventArgs e) //usuwanie
-        {
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz usunąć", "Usuwanie ćwiczenia", "");
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("DELETE from Cwiczenia WHERE NR_cwiczenia='"+input+"'", cn);
-            da.SelectCommand.ExecuteNonQuery();
-            cn.Close();
-            MessageBox.Show("Usunięto ćwiczenie");
-        }
-
-        private void wybierzĆwiczenieToolStripMenuItem_Click(object sender, EventArgs e) // wybor edytowania cwiczenia
-        {
-           string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
-            toEdit = input;
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia where Nr_cwiczenia='"+input+"' ", cn);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                textBox1.Text = dr["Nazwa"].ToString();
-                textBox2.Text = dr["Spalone_kalorie"].ToString();
-                comboBox1.Text = dr["Cwiczone_miesnie"].ToString();
-                textBox3.Text = dr["Zalecana_ilosc"].ToString();
-                richTextBox1.Text = dr["Opis"].ToString();
-            }
-            cn.Close();
-            MessageBox.Show("Wybrano ćwiczenie do edycji");
-        }
-
-        private void edytujĆwiczenieToolStripMenuItem1_Click(object sender, EventArgs e) //edytuj cwiczenie
-        {
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-
-            SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox1.Text + "',Spalone_kalorie='" + textBox2.Text + "',Cwiczone_miesnie='" + comboBox1.Text + "',Opis='" + richTextBox1.Text + "',Zalecana_ilosc='" + textBox3.Text + "' where Nr_cwiczenia="+toEdit+"", cn);
-            da.SelectCommand.ExecuteNonQuery();
-            cn.Close();
-            MessageBox.Show("Poprawnie zedytowano ćwiczenie");
         }
     }
 }
