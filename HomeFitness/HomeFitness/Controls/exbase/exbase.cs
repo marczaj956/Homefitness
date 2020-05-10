@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Text.RegularExpressions;
 namespace HomeFitness.Controls.exbase
 {
     public partial class exbase : UserControl
@@ -57,56 +57,129 @@ namespace HomeFitness.Controls.exbase
 
         private void button4_Click(object sender, EventArgs e) //dodanie do bazy
         {
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Cwiczenia (Nazwa,Spalone_kalorie,Cwiczone_miesnie,Opis,Zalecana_ilosc) VALUES('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.Text + "','" + richTextBox1.Text + "','" + textBox3.Text + "')", cn);
-            da.SelectCommand.ExecuteNonQuery();
-            cn.Close();
-            MessageBox.Show("Dodano ćwiczenie");
+            if (!Regex.IsMatch(textBox1.Text, @"^/ ^$|\s +/"))
+            {
+                MessageBox.Show("Nazwa jest pusta!!!!");
+            }
+            else if(!Regex.IsMatch(textBox2.Text,@"^(\s*|\d+)$"))
+            {
+                MessageBox.Show("Podano błędną liczbę kalorii");
+            }
+            else if (!Regex.IsMatch(textBox3.Text, @"^(\s*|\d+)$"))
+            {
+                MessageBox.Show("Podano błędną liczbę powtórzeń");
+            }
+            else
+            {
+
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Cwiczenia (Nazwa,Spalone_kalorie,Cwiczone_miesnie,Opis,Zalecana_ilosc) VALUES('" + textBox1.Text + "','" + textBox2.Text + "','" + comboBox1.Text + "','" + richTextBox1.Text + "','" + textBox3.Text + "')", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Dodano ćwiczenie");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e) // usuwanie z bazy
         {
-           // string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz usunąć", "Usuwanie ćwiczenia", "");
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("DELETE from Cwiczenia WHERE NR_cwiczenia='" + textBox8.Text + "'", cn);
-            da.SelectCommand.ExecuteNonQuery();
-            cn.Close();
-            MessageBox.Show("Usunięto ćwiczenie");
+            if (!Regex.IsMatch(textBox8.Text, @"^\d*[1-9]\d*$"))
+            {
+                MessageBox.Show("Podano błędny index");
+            }
+            else
+            {
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("DELETE from Cwiczenia WHERE NR_cwiczenia='" + textBox8.Text + "'", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Usunięto ćwiczenie");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e) // wybranei cwiczenia do edycji
         {
+            int c=0;//pomocnicza
+            int blad=0;
+           
             //string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
-            string input = textBox7.Text;
-            toEdit = input;
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia where Nr_cwiczenia='" + input + "' ", cn);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            if (!Regex.IsMatch(textBox7.Text, @"^\d*[1-9]\d*$"))
             {
-                textBox6.Text = dr["Nazwa"].ToString();
-                textBox5.Text = dr["Spalone_kalorie"].ToString();
-                comboBox2.Text = dr["Cwiczone_miesnie"].ToString();
-                textBox4.Text = dr["Zalecana_ilosc"].ToString();
-                richTextBox2.Text = dr["Opis"].ToString();
+                MessageBox.Show("Podano błędny index");
+                blad++;
             }
-            cn.Close();
-            MessageBox.Show("Wybrano ćwiczenie do edycji");
+            else 
+            {
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("Select Nr_cwiczenia from Cwiczenia", cn);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (textBox7.Text == dr["Nr_cwiczenia"].ToString())
+                        c++;
+
+                }
+                cn.Close();
+            }
+            if(c==0&&blad==0)
+            {
+                MessageBox.Show("Podany index ćwiczenia nie istnieje w bazie");
+
+            }
+            else if(blad==0)
+            {
+
+
+
+                string input = textBox7.Text;
+                toEdit = input;
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia where Nr_cwiczenia='" + input + "' ", cn);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    textBox6.Text = dr["Nazwa"].ToString();
+                    textBox5.Text = dr["Spalone_kalorie"].ToString();
+                    comboBox2.Text = dr["Cwiczone_miesnie"].ToString();
+                    textBox4.Text = dr["Zalecana_ilosc"].ToString();
+                    richTextBox2.Text = dr["Opis"].ToString();
+                }
+                cn.Close();
+                MessageBox.Show("Wybrano ćwiczenie do edycji");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) //edycja ćwiczenia
         {
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
+            if (!Regex.IsMatch(textBox6.Text, @"^/ ^$|\s +/") )
+            {
+                MessageBox.Show("Nazwa jest pusta!!!!");
+            }
+            else if (!Regex.IsMatch(textBox5.Text, @"^(\s*|\d+)$"))
+            {
+                MessageBox.Show("Podano błędną liczbę kalorii");
+            }
+            else if (!Regex.IsMatch(textBox4.Text, @"^(\s*|\d+)$"))
+            {
+                MessageBox.Show("Podano błędną liczbę powtórzeń");
+            }
+            else
+            {
 
-            SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox6.Text + "',Spalone_kalorie='" + textBox5.Text + "',Cwiczone_miesnie='" + comboBox2.Text + "',Opis='" + richTextBox2.Text + "',Zalecana_ilosc='" + textBox4.Text + "' where Nr_cwiczenia=" + toEdit + "", cn);
-            da.SelectCommand.ExecuteNonQuery();
-            cn.Close();
-            MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox6.Text + "',Spalone_kalorie='" + textBox5.Text + "',Cwiczone_miesnie='" + comboBox2.Text + "',Opis='" + richTextBox2.Text + "',Zalecana_ilosc='" + textBox4.Text + "' where Nr_cwiczenia=" + toEdit + "", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e) //odśweiżanie
