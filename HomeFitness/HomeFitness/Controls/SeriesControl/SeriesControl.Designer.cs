@@ -45,6 +45,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -89,12 +91,13 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(536, 488);
             this.treeView1.TabIndex = 43;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(18, 300);
+            this.label6.Location = new System.Drawing.Point(18, 378);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(237, 26);
             this.label6.TabIndex = 42;
@@ -104,9 +107,9 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(186, 351);
+            this.listBox1.Location = new System.Drawing.Point(186, 416);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(338, 364);
+            this.listBox1.Size = new System.Drawing.Size(338, 324);
             this.listBox1.TabIndex = 41;
             // 
             // trackBar1
@@ -118,6 +121,8 @@
             this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.trackBar1.Size = new System.Drawing.Size(338, 69);
             this.trackBar1.TabIndex = 40;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label5
             // 
@@ -160,6 +165,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(338, 28);
             this.comboBox1.TabIndex = 36;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -197,6 +203,7 @@
             this.button1.TabIndex = 32;
             this.button1.Text = "Dodaj nową serię";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // splitContainer1
             // 
@@ -214,6 +221,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button4);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
@@ -242,6 +251,29 @@
             this.label2.Size = new System.Drawing.Size(616, 79);
             this.label2.TabIndex = 15;
             this.label2.Text = "HOME-FITNESS";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label8.Location = new System.Drawing.Point(93, 206);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 26);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "0";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button4.Location = new System.Drawing.Point(327, 294);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(175, 61);
+            this.button4.TabIndex = 48;
+            this.button4.Text = "Dodaj ćwiczenie";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // SeriesControl
             // 
@@ -280,5 +312,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button4;
     }
 }
