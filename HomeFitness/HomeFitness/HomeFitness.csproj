@@ -85,18 +85,18 @@
     <Compile Include="Controls\exbase\exbase.Designer.cs">
       <DependentUpon>exbase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SeriesControl\SeriesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SeriesControl\SeriesControl.Designer.cs">
-      <DependentUpon>SeriesControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Common\Util.cs" />
     <Compile Include="Controls\MainPanel\MainControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\MainPanel\MainControl.Designer.cs">
       <DependentUpon>MainControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SeriesControl\SeriesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SeriesControl\SeriesControl.Designer.cs">
+      <DependentUpon>SeriesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TreningControl\Trening_click.cs">
       <SubType>UserControl</SubType>
