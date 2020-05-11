@@ -119,7 +119,7 @@ namespace HomeFitness.Controls.SeriesControl
 
         private void button5_Click(object sender, EventArgs e)
         {
-            listView2.Items.Remove(comboBox3.Text);
+            //listView2.Items.Remove(comboBox3.Text);
             comboBox3.Items.Remove(comboBox3.Text);
           
         }

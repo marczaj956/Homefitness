@@ -79,6 +79,12 @@
     <Compile Include="Controls\AchPanel\Ach.Designer.cs">
       <DependentUpon>Ach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Calendar\Calendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Calendar\Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\exbase\exbase.cs">
       <SubType>UserControl</SubType>
     </Compile>

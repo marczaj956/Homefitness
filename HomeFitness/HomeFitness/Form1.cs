@@ -3,6 +3,7 @@ using HomeFitness.Controls.exbase;
 using HomeFitness.Controls.MainPanel;
 using HomeFitness.Controls.SeriesControl;
 using HomeFitness.Controls.Trening;
+using HomeFitness.Controls.Calendar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,6 +130,12 @@ namespace HomeFitness
             MainPanel.Controls.Add(new Ach());
 
            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Calendar());
         }
     }
 }
