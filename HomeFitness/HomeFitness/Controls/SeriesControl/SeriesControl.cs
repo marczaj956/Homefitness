@@ -123,5 +123,10 @@ namespace HomeFitness.Controls.SeriesControl
             comboBox3.Items.Remove(comboBox3.Text);
           
         }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
