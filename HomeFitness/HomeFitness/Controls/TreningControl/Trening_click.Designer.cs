@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -71,15 +70,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(339, 591);
-            this.splitter1.TabIndex = 50;
-            this.splitter1.TabStop = false;
-            this.splitter1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoved);
             // 
             // treeView1
             // 
@@ -545,7 +535,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.splitter1);
             this.Name = "Trening_click";
             this.Size = new System.Drawing.Size(837, 591);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -560,7 +549,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
