@@ -146,7 +146,43 @@ namespace HomeFitness.Controls.SeriesControl
                 SqlConnection cn = new SqlConnection(conS);
                 cn.Open();
                 SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Seria_cwiczen (Nazwa_serii, Cwiczona_partia) VALUES('" + textBox3.Text + "','" + comboBox1.Text + "')", cn);
-                da.SelectCommand.ExecuteNonQuery();
+
+               
+                foreach (ListViewItem items in listView2.Items)
+                {
+                   //nr cwiczenia
+                    DataTable dt1 = new DataTable();
+                    ListViewItem item = listView2.Items[0];
+                    string name = item.Text;
+                    name = name.Trim();
+                    string que = "Select Nr_cwiczenia from Cwiczenia where Nazwa like '" + name +"' " ;
+                    SqlDataAdapter da1 = new SqlDataAdapter(que, cn);
+                    da1.Fill(dt1);
+                    string exID= "0";
+
+                    foreach (DataRow dr in dt1.Rows)
+                    {
+                       exID = dr["Nr_cwiczenia"].ToString();
+                    }
+                    //nr serii
+                    DataTable dt2 = new DataTable();
+                    string que1 = "Select Nr_Serii from Seria_cwiczen where Nazwa_serii like '" + textBox3.Text + "' ";
+                    SqlDataAdapter da2 = new SqlDataAdapter(que1, cn);
+                    da2.Fill(dt2);   
+                    string seID="0";
+                    foreach (DataRow dr in dt2.Rows)
+                    {
+                        seID = dr["Nr_Serii"].ToString();
+                    }
+
+                    if (seID != "0" && exID != "0")
+                    {
+                        SqlDataAdapter da3 = new SqlDataAdapter("INSERT INTO CwSC (Cwiczenia_Nr_cwiczenia, Seria_cwiczen_Nr_Serii) VALUES('" + exID + "','" + seID + "')", cn);
+                    }
+
+
+                }
+
                 cn.Close();
                 MessageBox.Show("Dodano serię");
 
