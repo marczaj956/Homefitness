@@ -137,5 +137,52 @@ namespace HomeFitness
             MainPanel.Controls.Clear();
             MainPanel.Controls.Add(new Calendar());
         }
+
+        private void podglądToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new exbase());
+        }
+
+        private void bazaĆwiczeńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void podglądToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new StartTraningControl());
+        }
+
+        private void planTreningowyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new Calendar());
+        }
+
+        private void seriaĆwiczeńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainPanel.Controls.Clear();
+            MainPanel.Controls.Add(new SeriesControl());
+        }
+
+        private void pomocTechnicznaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+ 
+   
+               MessageBox.Show("Witamy w dziale pomocy. Jeżeli masz jakiekolwiek problemy z naszym programem zgłoś się do nas" +"\n"+
+               "Kontakt : @student.polsl.pl", "Kontakt");
+        }
+
+        private void autorzyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kamil Barański" + "\n"+
+                            "Wojciech Cisoń" + "\n" +
+                            "Maciej Pałach" + "\n" +
+                            "Piotr Talik" + "\n" +
+                            "Dominika Wysocka" + "\n" +
+                            "Marcin Zajonc" + "\n","Autorzy" );
+        }
     }
 }
