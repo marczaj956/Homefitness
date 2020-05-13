@@ -106,10 +106,12 @@ namespace HomeFitness.Controls.SeriesControl
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ListViewItem item = new ListViewItem(comboBox2.Text);
-            item.SubItems.Add(label7.Text);
-            listView2.Items.Add(item);
-            comboBox3.Items.Add(comboBox2.Text);
+            if (comboBox2.Text != "" && label7.Text != "0") {
+                ListViewItem item = new ListViewItem(comboBox2.Text);
+                item.SubItems.Add(label7.Text);
+                listView2.Items.Add(item);
+                comboBox3.Items.Add(comboBox2.Text);
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,12 +121,45 @@ namespace HomeFitness.Controls.SeriesControl
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //listView2.Items.Remove(comboBox3.Text);
+
+            foreach (ListViewItem item in listView2.Items)
+            {
+                if (item.Text == comboBox3.Text)
+                    listView2.Items.Remove(item);
+            }
+
             comboBox3.Items.Remove(comboBox3.Text);
           
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text != "" && comboBox1.Text != "" && listView2.Items.Count != 0)
+            {
+               
+                string conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Seria_cwiczen (Nazwa_serii, Cwiczona_partia) VALUES('" + textBox3.Text + "','" + comboBox1.Text + "')", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Dodano serię");
+
+            
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

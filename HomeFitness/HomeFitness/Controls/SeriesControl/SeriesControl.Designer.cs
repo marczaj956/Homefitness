@@ -31,10 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cwiczone_partie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.Nazwa_cwiczenia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ilosc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -47,16 +57,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Cwiczone_partie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.Nazwa_cwiczenia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ilosc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button5 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -115,6 +115,21 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 50;
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.Text = "Nazwa";
+            this.Nazwa.Width = 150;
+            // 
+            // Cwiczone_partie
+            // 
+            this.Cwiczone_partie.Text = "Cwiczone partie";
+            this.Cwiczone_partie.Width = 150;
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -157,6 +172,69 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Serie ćwiczeń";
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(8, 718);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(187, 28);
+            this.comboBox3.TabIndex = 18;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(3, 654);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(213, 25);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Usuwanie ćwiczenia:";
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button5.Location = new System.Drawing.Point(8, 781);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(193, 40);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Usuń ćwiczenie";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nazwa_cwiczenia,
+            this.ilosc});
+            this.listView2.Location = new System.Drawing.Point(245, 369);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(352, 364);
+            this.listView2.TabIndex = 15;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            // 
+            // Nazwa_cwiczenia
+            // 
+            this.Nazwa_cwiczenia.Text = "Nazwa ćwiczenia";
+            this.Nazwa_cwiczenia.Width = 200;
+            // 
+            // ilosc
+            // 
+            this.ilosc.Text = "Ilość";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button4.Location = new System.Drawing.Point(404, 286);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(193, 40);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Dodaj ćwiczenie";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -166,6 +244,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Zapisz";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBox2
             // 
@@ -190,6 +269,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(352, 28);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox3
             // 
@@ -197,6 +277,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(352, 26);
             this.textBox3.TabIndex = 10;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // trackBar1
             // 
@@ -268,84 +349,6 @@
             this.label3.Size = new System.Drawing.Size(143, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nazwa serii:";
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 50;
-            // 
-            // Nazwa
-            // 
-            this.Nazwa.Text = "Nazwa";
-            this.Nazwa.Width = 150;
-            // 
-            // Cwiczone_partie
-            // 
-            this.Cwiczone_partie.Text = "Cwiczone partie";
-            this.Cwiczone_partie.Width = 150;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(404, 286);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(193, 40);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Dodaj ćwiczenie";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nazwa_cwiczenia,
-            this.ilosc});
-            this.listView2.Location = new System.Drawing.Point(245, 369);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(352, 364);
-            this.listView2.TabIndex = 15;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
-            // 
-            // Nazwa_cwiczenia
-            // 
-            this.Nazwa_cwiczenia.Text = "Nazwa ćwiczenia";
-            this.Nazwa_cwiczenia.Width = 200;
-            // 
-            // ilosc
-            // 
-            this.ilosc.Text = "Ilość";
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Location = new System.Drawing.Point(8, 781);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(193, 40);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Usuń ćwiczenie";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(3, 654);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 25);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Usuwanie ćwiczenia:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(8, 718);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(187, 28);
-            this.comboBox3.TabIndex = 18;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // SeriesControl
             // 
