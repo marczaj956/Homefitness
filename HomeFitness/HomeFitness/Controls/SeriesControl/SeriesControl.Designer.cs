@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nazwa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,12 +63,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button6 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -112,6 +112,64 @@
             this.splitContainer1.Size = new System.Drawing.Size(1197, 860);
             this.splitContainer1.SplitterDistance = 530;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button7.Location = new System.Drawing.Point(381, 293);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(146, 35);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Usuń serię";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(326, 300);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(49, 26);
+            this.textBox2.TabIndex = 8;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(303, 227);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(50, 26);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(16, 301);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(275, 25);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Podaj ID serii do usunięcia:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(16, 226);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(239, 25);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Podaj ID serii do edycji:";
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button6.Location = new System.Drawing.Point(352, 374);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(175, 40);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Odśwież";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // listView1
             // 
@@ -166,7 +224,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(356, 218);
+            this.button1.Location = new System.Drawing.Point(369, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 35);
             this.button1.TabIndex = 1;
@@ -183,7 +241,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(386, 64);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Serie ćwiczeń";
+            this.label1.Text = "Seria ćwiczeń";
             // 
             // comboBox3
             // 
@@ -352,6 +410,7 @@
             this.label4.Size = new System.Drawing.Size(182, 26);
             this.label4.TabIndex = 1;
             this.label4.Text = "Ćwiczona partia";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -362,64 +421,6 @@
             this.label3.Size = new System.Drawing.Size(143, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "Nazwa serii:";
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Location = new System.Drawing.Point(339, 374);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(175, 40);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Odśwież";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(16, 226);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(239, 25);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Podaj ID serii do edycji:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(16, 301);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(275, 25);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Podaj ID serii do usunięcia:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(261, 227);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(50, 26);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(294, 302);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(49, 26);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button7.Location = new System.Drawing.Point(356, 293);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(158, 35);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Usuń serię";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // SeriesControl
             // 
