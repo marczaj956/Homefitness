@@ -57,7 +57,7 @@ namespace HomeFitness.Controls.exbase
 
         private void button4_Click(object sender, EventArgs e) //dodanie do bazy
         {
-            if (!Regex.IsMatch(textBox1.Text, @"^/ ^$|\s +/"))
+            if (!Regex.IsMatch(textBox1.Text, @"^(?!\s*$).+"))
             {
                 MessageBox.Show("Nazwa jest pusta!!!!");
             }
@@ -156,7 +156,7 @@ namespace HomeFitness.Controls.exbase
 
         private void button2_Click(object sender, EventArgs e) //edycja ćwiczenia
         {
-            if (!Regex.IsMatch(textBox6.Text, @"^/ ^$|\s +/") )
+            if (!Regex.IsMatch(textBox6.Text, @"^(?!\s*$).+") )
             {
                 MessageBox.Show("Nazwa jest pusta!!!!");
             }
@@ -178,6 +178,13 @@ namespace HomeFitness.Controls.exbase
                 SqlDataAdapter da = new SqlDataAdapter("UPDATE Cwiczenia SET Nazwa='" + textBox6.Text + "',Spalone_kalorie='" + textBox5.Text + "',Cwiczone_miesnie='" + comboBox2.Text + "',Opis='" + richTextBox2.Text + "',Zalecana_ilosc='" + textBox4.Text + "' where Nr_cwiczenia=" + toEdit + "", cn);
                 da.SelectCommand.ExecuteNonQuery();
                 cn.Close();
+                textBox6.Clear();
+                textBox5.Clear();
+                textBox7.Clear();
+                textBox4.Clear();
+                comboBox2.Text = "";
+                richTextBox2.Clear();
+
                 MessageBox.Show("Poprawnie zedytowano ćwiczenie");
             }
         }
