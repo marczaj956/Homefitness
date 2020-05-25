@@ -8,20 +8,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Text.RegularExpressions;
 namespace HomeFitness.Controls.AchPanel
 {
     public partial class Ach : UserControl
     {
+        string conS; //connectionString do bazy
+        string toEdit;
         public Ach()
         {
+            
             InitializeComponent();
+            conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+            {
+                String nr = "1";
+                
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter d = new SqlDataAdapter("Select Poprzednia from Waga where Id='" + nr + "' ", cn);
+                d.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    textpw.Text = dr["Poprzednia"].ToString();
+                    
+                }
+                d= new SqlDataAdapter("Select Obecna from Waga where Id='" + nr + "' ", cn);
+                d.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    textnw.Text = dr["Obecna"].ToString();
 
-            //jak pusty to create
+                }
+                d = new SqlDataAdapter("Select Cel from Waga where Id='" + nr + "' ", cn);
+                d.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    textdw.Text = dr["Cel"].ToString();
+                    
+                }
 
-           
 
 
 
+                cn.Close();
+            }
+//do pliku
+            {/*        { 
             //odczyt z pliku waga
             {
                 string line;
@@ -65,7 +100,8 @@ namespace HomeFitness.Controls.AchPanel
                 else File.Create(filePath).Close();
             }
 
-
+}*/
+            }
 
         }
 
@@ -116,7 +152,8 @@ namespace HomeFitness.Controls.AchPanel
         {//zapis do pliku brak sprawdzenia poprawności
 
             if (textnw.Text.Length > 0)
-            {
+            {//do pliku
+                {/*
                 
                 string extension = ".txt";
                 string filePath = @"Waga" + extension;
@@ -132,7 +169,28 @@ namespace HomeFitness.Controls.AchPanel
                 }
                 
 
-                MessageBox.Show("Zapisano!");
+                MessageBox.Show("Zapisano!");*/
+                }
+                {
+                    String nr = "1";
+                    float ob = 0;
+                    SqlConnection cn = new SqlConnection(conS);
+                    cn.Open();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter d = new SqlDataAdapter("Select Obecna from Waga where Id='" + nr + "' ", cn);
+                    d.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        ob=float.Parse( dr["Obecna"].ToString());
+                    }
+                    SqlDataAdapter da = new SqlDataAdapter("Update Waga SET Poprzednia='" + ob + "' ,Obecna='" + textnw.Text + "'", cn);
+                    da.SelectCommand.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Zapisano");
+                    
+                }
+
+
             }
 
             else MessageBox.Show("Wpisz wagę!");
@@ -144,6 +202,20 @@ namespace HomeFitness.Controls.AchPanel
         {//zapis do pliku brak sprawdzenia poprawności
             if (textdw.Text.Length > 0)
             {
+                
+                float ob = 0;
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("Update Waga SET Cel='"  + textdw.Text + "'", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Zapisano");
+
+            }
+
+            //do pliku
+
+            /*{
                 
                 string extension = ".txt";
                 string filePath = @"Cel" + extension;
@@ -161,8 +233,7 @@ namespace HomeFitness.Controls.AchPanel
                 }
                 
                 MessageBox.Show("Zapisano!");
-            }
-
+            }*/
             else MessageBox.Show("Wpisz wagę!");
         }
     }
