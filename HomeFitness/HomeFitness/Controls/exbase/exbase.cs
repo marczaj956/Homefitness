@@ -14,14 +14,14 @@ namespace HomeFitness.Controls.exbase
 {
     public partial class exbase : UserControl
     {
-      
-       string conS; //connectionString do bazy
-       string toEdit; 
+
+        string conS; //connectionString do bazy
+        string toEdit;
         public exbase()
         {
             InitializeComponent();
             //inicjalizacja polaczenia do bazy
-           
+
             conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
             pokabaze();
         }
@@ -53,7 +53,7 @@ namespace HomeFitness.Controls.exbase
         }
 
 
-   
+
 
         private void button4_Click(object sender, EventArgs e) //dodanie do bazy
         {
@@ -61,7 +61,7 @@ namespace HomeFitness.Controls.exbase
             {
                 MessageBox.Show("Nazwa jest pusta!!!!");
             }
-            else if(!Regex.IsMatch(textBox2.Text,@"^(\s*|\d+)$"))
+            else if (!Regex.IsMatch(textBox2.Text, @"^(\s*|\d+)$"))
             {
                 MessageBox.Show("Podano błędną liczbę kalorii");
             }
@@ -78,6 +78,25 @@ namespace HomeFitness.Controls.exbase
                 da.SelectCommand.ExecuteNonQuery();
                 cn.Close();
                 MessageBox.Show("Dodano ćwiczenie");
+
+
+                listView1.Items.Clear();
+                SqlConnection cn1 = new SqlConnection(conS);
+                cn1.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da1 = new SqlDataAdapter("Select * from Cwiczenia", cn1);
+                da1.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(dr["Nr_cwiczenia"].ToString());
+                    item.SubItems.Add(dr["Nazwa"].ToString());
+                    item.SubItems.Add(dr["Spalone_kalorie"].ToString());
+                    item.SubItems.Add(dr["Cwiczone_miesnie"].ToString());
+                    item.SubItems.Add(dr["Opis"].ToString());
+                    item.SubItems.Add(dr["Zalecana_ilosc"].ToString());
+                    listView1.Items.Add(item);
+                }
+                cn1.Close();
             }
         }
 
@@ -95,21 +114,39 @@ namespace HomeFitness.Controls.exbase
                 da.SelectCommand.ExecuteNonQuery();
                 cn.Close();
                 MessageBox.Show("Usunięto ćwiczenie");
+
+                listView1.Items.Clear();
+                SqlConnection cn1 = new SqlConnection(conS);
+                cn1.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da1 = new SqlDataAdapter("Select * from Cwiczenia", cn1);
+                da1.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(dr["Nr_cwiczenia"].ToString());
+                    item.SubItems.Add(dr["Nazwa"].ToString());
+                    item.SubItems.Add(dr["Spalone_kalorie"].ToString());
+                    item.SubItems.Add(dr["Cwiczone_miesnie"].ToString());
+                    item.SubItems.Add(dr["Opis"].ToString());
+                    item.SubItems.Add(dr["Zalecana_ilosc"].ToString());
+                    listView1.Items.Add(item);
+                }
+                cn1.Close();
             }
         }
 
         private void button1_Click(object sender, EventArgs e) // wybranei cwiczenia do edycji
         {
-            int c=0;//pomocnicza
-            int blad=0;
-           
+            int c = 0;//pomocnicza
+            int blad = 0;
+
             //string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
             if (!Regex.IsMatch(textBox7.Text, @"^\d*[1-9]\d*$"))
             {
                 MessageBox.Show("Podano błędny index");
                 blad++;
             }
-            else 
+            else
             {
                 SqlConnection cn = new SqlConnection(conS);
                 cn.Open();
@@ -124,12 +161,12 @@ namespace HomeFitness.Controls.exbase
                 }
                 cn.Close();
             }
-            if(c==0&&blad==0)
+            if (c == 0 && blad == 0)
             {
                 MessageBox.Show("Podany index ćwiczenia nie istnieje w bazie");
 
             }
-            else if(blad==0)
+            else if (blad == 0)
             {
 
 
@@ -156,7 +193,7 @@ namespace HomeFitness.Controls.exbase
 
         private void button2_Click(object sender, EventArgs e) //edycja ćwiczenia
         {
-            if (!Regex.IsMatch(textBox6.Text, @"^(?!\s*$).+") )
+            if (!Regex.IsMatch(textBox6.Text, @"^(?!\s*$).+"))
             {
                 MessageBox.Show("Nazwa jest pusta!!!!");
             }
@@ -186,29 +223,29 @@ namespace HomeFitness.Controls.exbase
                 richTextBox2.Clear();
 
                 MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+
+
+                listView1.Items.Clear();
+                SqlConnection cn1 = new SqlConnection(conS);
+                cn1.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da1 = new SqlDataAdapter("Select * from Cwiczenia", cn1);
+                da1.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ListViewItem item = new ListViewItem(dr["Nr_cwiczenia"].ToString());
+                    item.SubItems.Add(dr["Nazwa"].ToString());
+                    item.SubItems.Add(dr["Spalone_kalorie"].ToString());
+                    item.SubItems.Add(dr["Cwiczone_miesnie"].ToString());
+                    item.SubItems.Add(dr["Opis"].ToString());
+                    item.SubItems.Add(dr["Zalecana_ilosc"].ToString());
+                    listView1.Items.Add(item);
+                }
+                cn1.Close();
             }
         }
 
-        private void button5_Click(object sender, EventArgs e) //odśweiżanie
-        {
-            listView1.Items.Clear();
-            SqlConnection cn = new SqlConnection(conS);
-            cn.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Cwiczenia", cn);
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                ListViewItem item = new ListViewItem(dr["Nr_cwiczenia"].ToString());
-                item.SubItems.Add(dr["Nazwa"].ToString());
-                item.SubItems.Add(dr["Spalone_kalorie"].ToString());
-                item.SubItems.Add(dr["Cwiczone_miesnie"].ToString());
-                item.SubItems.Add(dr["Opis"].ToString());
-                item.SubItems.Add(dr["Zalecana_ilosc"].ToString());
-                listView1.Items.Add(item);
-            }
-            cn.Close();
-        }
+
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {

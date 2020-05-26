@@ -39,7 +39,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button5 = new System.Windows.Forms.Button();
             this.bazaDataSet = new HomeFitness.bazaDataSet();
             this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
@@ -163,17 +162,6 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Ilość";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(509, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(279, 48);
-            this.button5.TabIndex = 60;
-            this.button5.Text = "Odśwież baze ćwiczeń";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // bazaDataSet
             // 
@@ -590,7 +578,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label2);
@@ -661,7 +648,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ImageList imageList1;
     }
 }
