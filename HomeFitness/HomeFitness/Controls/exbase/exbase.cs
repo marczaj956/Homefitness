@@ -209,5 +209,10 @@ namespace HomeFitness.Controls.exbase
             }
             cn.Close();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,16 +26,16 @@ namespace HomeFitness
 
         private void Init()
         {
-            using (var adapter = new CwiczeniaTableAdapter())
+            using (var adapter = new Plan_treninguTableAdapter())
             {
-                using (bazaDataSet.CwiczeniaDataTable dt = new bazaDataSet.CwiczeniaDataTable())
+                using (bazaDataSet.Plan_treninguDataTable dt = new bazaDataSet.Plan_treninguDataTable())
                 {
-                    adapter.Fill(dt);
+                    //adapter.Fill(dt);
 
-                    // Kolega sie pomylil
-                    dt.Columns["Zalecana_ilosc"].ColumnName = "Zalecana liczba";
+                    
+                
 
-                    dt.Columns.RemoveUnderscoreFromColumns();
+                   
 
                     dgvTrainings.DataSource = dt;
                 }
@@ -43,5 +43,20 @@ namespace HomeFitness
             
         }
 
+        private void dgvTrainings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnRozpocznijTrening_Click(object sender, EventArgs e)
+        {
+            
+          
+        }
+
+        private void StartTraningControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

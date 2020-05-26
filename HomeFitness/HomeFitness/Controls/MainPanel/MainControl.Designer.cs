@@ -81,6 +81,7 @@
             this.label3.Size = new System.Drawing.Size(290, 30);
             this.label3.TabIndex = 24;
             this.label3.Text = "Wtorek, godzina 19:00";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

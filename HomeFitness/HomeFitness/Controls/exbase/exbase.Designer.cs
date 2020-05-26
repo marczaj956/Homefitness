@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(exbase));
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button5 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,6 +39,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button5 = new System.Windows.Forms.Button();
             this.bazaDataSet = new HomeFitness.bazaDataSet();
             this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
@@ -106,7 +106,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(11, 54);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel2
@@ -116,17 +116,6 @@
             this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 17;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(509, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(279, 48);
-            this.button5.TabIndex = 60;
-            this.button5.Text = "Odśwież baze ćwiczeń";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // listView1
             // 
@@ -139,12 +128,13 @@
             this.columnHeader5});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(8, 0);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(590, 503);
             this.listView1.TabIndex = 62;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -174,6 +164,17 @@
             // 
             this.columnHeader5.Text = "Ilość";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(509, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(279, 48);
+            this.button5.TabIndex = 60;
+            this.button5.Text = "Odśwież baze ćwiczeń";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // bazaDataSet
             // 
             this.bazaDataSet.DataSetName = "bazaDataSet";
@@ -195,7 +196,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(11, 54);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(190, 505);
@@ -216,9 +217,9 @@
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.ImageIndex = 0;
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(182, 478);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dodaj";
@@ -227,7 +228,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(8, 387);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(169, 90);
             this.button4.TabIndex = 82;
@@ -238,7 +239,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(8, 194);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(170, 188);
             this.richTextBox1.TabIndex = 67;
@@ -247,7 +248,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(8, 153);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(170, 20);
             this.textBox3.TabIndex = 66;
@@ -255,7 +256,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(8, 70);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(170, 20);
             this.textBox2.TabIndex = 65;
@@ -318,7 +319,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(8, 29);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 20);
             this.textBox1.TabIndex = 59;
@@ -336,7 +337,7 @@
             "Uda",
             "Łydki"});
             this.comboBox1.Location = new System.Drawing.Point(8, 110);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(170, 21);
             this.comboBox1.TabIndex = 61;
@@ -349,9 +350,9 @@
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.ImageIndex = 1;
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(182, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Usuń";
@@ -371,7 +372,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(5, 70);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(168, 110);
             this.button3.TabIndex = 83;
@@ -382,7 +383,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(5, 48);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(170, 20);
             this.textBox8.TabIndex = 82;
@@ -416,9 +417,9 @@
             this.tabPage3.Controls.Add(this.comboBox2);
             this.tabPage3.ImageIndex = 2;
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(182, 478);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Edytuj";
@@ -427,7 +428,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(8, 392);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 73);
             this.button2.TabIndex = 81;
@@ -438,7 +439,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(8, 46);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 22);
             this.button1.TabIndex = 80;
@@ -449,7 +450,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(8, 24);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(170, 20);
             this.textBox7.TabIndex = 79;
@@ -468,7 +469,7 @@
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(8, 256);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(170, 132);
             this.richTextBox2.TabIndex = 77;
@@ -477,7 +478,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(8, 214);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(170, 20);
             this.textBox4.TabIndex = 76;
@@ -485,7 +486,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(8, 132);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(170, 20);
             this.textBox5.TabIndex = 75;
@@ -548,7 +549,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(8, 91);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(170, 20);
             this.textBox6.TabIndex = 69;
@@ -566,7 +567,7 @@
             "Uda",
             "Łydki"});
             this.comboBox2.Location = new System.Drawing.Point(8, 172);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(170, 21);
             this.comboBox2.TabIndex = 71;
@@ -593,7 +594,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "exbase";
             this.Size = new System.Drawing.Size(798, 559);
             this.splitContainer1.Panel2.ResumeLayout(false);
