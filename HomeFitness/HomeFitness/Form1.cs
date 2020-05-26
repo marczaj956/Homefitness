@@ -107,7 +107,7 @@ namespace HomeFitness
         private void btnRozpocznijTrening_Click(object sender, EventArgs e)
         {
             MainPanel.Controls.Clear();
-            MainPanel.Controls.Add(new StartTraningControl());
+            MainPanel.Controls.Add(new StartTraningControl(MainPanel));
         }
 
         private void button5_Click(object sender, EventArgs e)

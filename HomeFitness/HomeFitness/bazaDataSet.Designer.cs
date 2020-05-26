@@ -1210,7 +1210,7 @@ namespace HomeFitness {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Plan_treninguRow AddPlan_treninguRow(int Nr_Planu, string Dzien, System.DateTime Godzina, TreningiRow parentTreningiRowByPlan_treningu_Treningi_FK) {
+            public Plan_treninguRow AddPlan_treninguRow(int Nr_Planu, System.DateTime Dzien, System.TimeSpan Godzina, TreningiRow parentTreningiRowByPlan_treningu_Treningi_FK) {
                 Plan_treninguRow rowPlan_treninguRow = ((Plan_treninguRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nr_Planu,
@@ -1260,9 +1260,9 @@ namespace HomeFitness {
             private void InitClass() {
                 this.columnNr_Planu = new global::System.Data.DataColumn("Nr_Planu", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNr_Planu);
-                this.columnDzien = new global::System.Data.DataColumn("Dzien", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDzien = new global::System.Data.DataColumn("Dzien", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDzien);
-                this.columnGodzina = new global::System.Data.DataColumn("Godzina", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnGodzina = new global::System.Data.DataColumn("Godzina", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGodzina);
                 this.columnTreningi_Nr_treningu = new global::System.Data.DataColumn("Treningi_Nr_treningu", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTreningi_Nr_treningu);
@@ -1270,7 +1270,6 @@ namespace HomeFitness {
                                 this.columnNr_Planu}, true));
                 this.columnNr_Planu.AllowDBNull = false;
                 this.columnNr_Planu.Unique = true;
-                this.columnDzien.MaxLength = 3;
                 this.columnTreningi_Nr_treningu.AllowDBNull = false;
             }
             
@@ -2517,10 +2516,10 @@ namespace HomeFitness {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Dzien {
+            public System.DateTime Dzien {
                 get {
                     try {
-                        return ((string)(this[this.tablePlan_treningu.DzienColumn]));
+                        return ((global::System.DateTime)(this[this.tablePlan_treningu.DzienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Dzien\' in table \'Plan_treningu\' is DBNull.", e);
@@ -2533,10 +2532,10 @@ namespace HomeFitness {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Godzina {
+            public System.TimeSpan Godzina {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePlan_treningu.GodzinaColumn]));
+                        return ((global::System.TimeSpan)(this[this.tablePlan_treningu.GodzinaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Godzina\' in table \'Plan_treningu\' is DBNull.", e);

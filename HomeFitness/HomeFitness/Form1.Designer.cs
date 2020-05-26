@@ -37,12 +37,15 @@
             this.bazaĆwiczeńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.podglądToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajĆwiczenieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seriaĆwiczeńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.podglądToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.planTreningowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrolaWagiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrolujWageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocTechnicznaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autorzyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -53,9 +56,6 @@
             this.cwiczeniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cwiczeniaTableAdapter = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
             this.tableAdapterManager = new HomeFitness.bazaDataSetTableAdapters.TableAdapterManager();
-            this.planTreningowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seriaĆwiczeńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autorzyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cwiczeniaBindingSource)).BeginInit();
@@ -120,16 +120,23 @@
             // podglądToolStripMenuItem
             // 
             this.podglądToolStripMenuItem.Name = "podglądToolStripMenuItem";
-            this.podglądToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.podglądToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.podglądToolStripMenuItem.Text = "Podgląd";
             this.podglądToolStripMenuItem.Click += new System.EventHandler(this.podglądToolStripMenuItem_Click);
             // 
             // dodajĆwiczenieToolStripMenuItem
             // 
             this.dodajĆwiczenieToolStripMenuItem.Name = "dodajĆwiczenieToolStripMenuItem";
-            this.dodajĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajĆwiczenieToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.dodajĆwiczenieToolStripMenuItem.Text = "Dodaj ćwiczenie";
             this.dodajĆwiczenieToolStripMenuItem.Click += new System.EventHandler(this.dodajĆwiczenieToolStripMenuItem_Click);
+            // 
+            // seriaĆwiczeńToolStripMenuItem
+            // 
+            this.seriaĆwiczeńToolStripMenuItem.Name = "seriaĆwiczeńToolStripMenuItem";
+            this.seriaĆwiczeńToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.seriaĆwiczeńToolStripMenuItem.Text = "Seria ćwiczeń";
+            this.seriaĆwiczeńToolStripMenuItem.Click += new System.EventHandler(this.seriaĆwiczeńToolStripMenuItem_Click);
             // 
             // treningToolStripMenuItem
             // 
@@ -137,15 +144,22 @@
             this.podglądToolStripMenuItem1,
             this.planTreningowyToolStripMenuItem});
             this.treningToolStripMenuItem.Name = "treningToolStripMenuItem";
-            this.treningToolStripMenuItem.Size = new System.Drawing.Size(58, 22);
+            this.treningToolStripMenuItem.Size = new System.Drawing.Size(59, 22);
             this.treningToolStripMenuItem.Text = "Trening";
             // 
             // podglądToolStripMenuItem1
             // 
             this.podglądToolStripMenuItem1.Name = "podglądToolStripMenuItem1";
-            this.podglądToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.podglądToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.podglądToolStripMenuItem1.Text = "Rozpocznij trening";
             this.podglądToolStripMenuItem1.Click += new System.EventHandler(this.podglądToolStripMenuItem1_Click);
+            // 
+            // planTreningowyToolStripMenuItem
+            // 
+            this.planTreningowyToolStripMenuItem.Name = "planTreningowyToolStripMenuItem";
+            this.planTreningowyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.planTreningowyToolStripMenuItem.Text = "Plan treningowy";
+            this.planTreningowyToolStripMenuItem.Click += new System.EventHandler(this.planTreningowyToolStripMenuItem_Click);
             // 
             // kontrolaWagiToolStripMenuItem
             // 
@@ -158,7 +172,7 @@
             // kontrolujWageToolStripMenuItem
             // 
             this.kontrolujWageToolStripMenuItem.Name = "kontrolujWageToolStripMenuItem";
-            this.kontrolujWageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kontrolujWageToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.kontrolujWageToolStripMenuItem.Text = "Podlgąd";
             this.kontrolujWageToolStripMenuItem.Click += new System.EventHandler(this.kontrolujWageToolStripMenuItem_Click);
             // 
@@ -174,9 +188,16 @@
             // pomocTechnicznaToolStripMenuItem
             // 
             this.pomocTechnicznaToolStripMenuItem.Name = "pomocTechnicznaToolStripMenuItem";
-            this.pomocTechnicznaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pomocTechnicznaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.pomocTechnicznaToolStripMenuItem.Text = "Pomoc techniczna";
             this.pomocTechnicznaToolStripMenuItem.Click += new System.EventHandler(this.pomocTechnicznaToolStripMenuItem_Click);
+            // 
+            // autorzyToolStripMenuItem
+            // 
+            this.autorzyToolStripMenuItem.Name = "autorzyToolStripMenuItem";
+            this.autorzyToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.autorzyToolStripMenuItem.Text = "Autorzy";
+            this.autorzyToolStripMenuItem.Click += new System.EventHandler(this.autorzyToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -280,27 +301,6 @@
             this.tableAdapterManager.Seria_cwiczenTableAdapter = null;
             this.tableAdapterManager.TreningiTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = HomeFitness.bazaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // planTreningowyToolStripMenuItem
-            // 
-            this.planTreningowyToolStripMenuItem.Name = "planTreningowyToolStripMenuItem";
-            this.planTreningowyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.planTreningowyToolStripMenuItem.Text = "Plan treningowy";
-            this.planTreningowyToolStripMenuItem.Click += new System.EventHandler(this.planTreningowyToolStripMenuItem_Click);
-            // 
-            // seriaĆwiczeńToolStripMenuItem
-            // 
-            this.seriaĆwiczeńToolStripMenuItem.Name = "seriaĆwiczeńToolStripMenuItem";
-            this.seriaĆwiczeńToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.seriaĆwiczeńToolStripMenuItem.Text = "Seria ćwiczeń";
-            this.seriaĆwiczeńToolStripMenuItem.Click += new System.EventHandler(this.seriaĆwiczeńToolStripMenuItem_Click);
-            // 
-            // autorzyToolStripMenuItem
-            // 
-            this.autorzyToolStripMenuItem.Name = "autorzyToolStripMenuItem";
-            this.autorzyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.autorzyToolStripMenuItem.Text = "Autorzy";
-            this.autorzyToolStripMenuItem.Click += new System.EventHandler(this.autorzyToolStripMenuItem_Click);
             // 
             // Form1
             // 

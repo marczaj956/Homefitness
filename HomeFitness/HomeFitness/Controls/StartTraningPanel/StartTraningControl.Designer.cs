@@ -39,9 +39,9 @@
             // dgvTrainings
             // 
             this.dgvTrainings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrainings.Location = new System.Drawing.Point(133, 77);
+            this.dgvTrainings.Location = new System.Drawing.Point(115, 98);
             this.dgvTrainings.Name = "dgvTrainings";
-            this.dgvTrainings.Size = new System.Drawing.Size(444, 46);
+            this.dgvTrainings.Size = new System.Drawing.Size(343, 178);
             this.dgvTrainings.TabIndex = 1;
             this.dgvTrainings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrainings_CellContentClick);
             // 
@@ -71,12 +71,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(45, 44);
+            this.label1.Location = new System.Drawing.Point(15, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 30);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Twój najbliższy trening:";
+            this.label1.Text = "Twoje najbliższe treningi";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // StartTraningControl
             // 
