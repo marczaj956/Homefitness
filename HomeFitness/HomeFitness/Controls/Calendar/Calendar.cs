@@ -21,9 +21,8 @@ namespace HomeFitness.Controls.Calendar
         public Calendar()
         {
             InitializeComponent();
-            //Fillcombo();
-
             conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+            Fillcombo();
             pokabaze();
         }
 
@@ -63,10 +62,10 @@ namespace HomeFitness.Controls.Calendar
 
         private void button7_Click(object sender, EventArgs e) //edycja
         {
+            
             int c = 0;//pomocnicza
             int blad = 0;
 
-            //string input = Microsoft.VisualBasic.Interaction.InputBox("Podaj ID ćwiczenia, które chcesz edytować", "Edytowanie ćwiczenia", "");
             if (!Regex.IsMatch(textBox7.Text, @"^\d*[1-9]\d*$"))
             {
                 MessageBox.Show("Podano błędny index");
@@ -95,8 +94,6 @@ namespace HomeFitness.Controls.Calendar
             else if (blad == 0)
             {
 
-
-
                 string input = textBox7.Text;
                 toEdit = input;
                 SqlConnection cn = new SqlConnection(conS);
@@ -107,7 +104,7 @@ namespace HomeFitness.Controls.Calendar
                 foreach (DataRow dr in dt.Rows)
                 {
                     dateTimePicker2.Text = dr["Dzien"].ToString();
-                    textBox2.Text = dr["Godzina"].ToString();
+                    dateTimePicker4.Text = dr["Godzina"].ToString();                 
                     comboBox2.Text = dr["Treningi_Nr_treningu"].ToString();
                 }
                 cn.Close();
@@ -115,18 +112,36 @@ namespace HomeFitness.Controls.Calendar
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            string cos = comboBox2.Text;
+            string[] tc = cos.Split(new char[] { ' ' });
+            string wartosc = tc[0];
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE Plan_treningu SET Dzien='" + dateTimePicker2.Text + "',Godzina='" + dateTimePicker4.Text + "',Treningi_Nr_treningu='" + wartosc + "' where Nr_Planu=" + toEdit + "", cn);
+            da.SelectCommand.ExecuteNonQuery();
+            cn.Close();
+            comboBox2.Text = "";
+
+            MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+        }
+
         private void button4_Click(object sender, EventArgs e) //dodanie do bazy
         {
-            
-           
-                SqlConnection cn = new SqlConnection(conS);
-                cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Plan_treningu (Dzien,Godzina,Treningi_Nr_treningu) VALUES('" + dateTimePicker1.Text + "','" + comboBox1.Text + "','" + dateTimePicker3.Text + "')", cn);
-                da.SelectCommand.ExecuteNonQuery();
-                cn.Close();
-                MessageBox.Show("Dodano trening do planu");
+
+
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            string cos = comboBox1.Text;
+            string[] tc = cos.Split(new char[] { ' ' });
+            string wartosc = tc[0];
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO Plan_treningu (Dzien,Godzina,Treningi_Nr_treningu) VALUES('" + dateTimePicker1.Text + "','" + dateTimePicker3.Text + "','" + wartosc + "')", cn);
+            da.SelectCommand.ExecuteNonQuery();
+            cn.Close();
+            MessageBox.Show("Dodano trening do planu");
         }
-        
+
 
         private void button5_Click_1(object sender, EventArgs e) // usuwanie z bazy
         {
@@ -145,7 +160,7 @@ namespace HomeFitness.Controls.Calendar
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) 
         {
             listView1.Items.Clear();
             SqlConnection cn = new SqlConnection(conS);
@@ -169,29 +184,10 @@ namespace HomeFitness.Controls.Calendar
 
         }
 
-        /*void Fillcombo()
+        private void Fillcombo()
         {
-           
-            string Query = "Select * from Treningi ;";
-            SqlConnection cn = new SqlConnection(conS);
-            SqlCommand cmdDataBase = new SqlCommand(Query, cn);
-            SqlDataReader myReader;
-            try
-            {
-                cn.Open();
-                myReader = cmdDataBase.ExecuteReader();
-                while (myReader.Read())
-                {
-                    string cos = myReader["Nazwa"].ToString();
-                    comboBox1.Items.Add(cos);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-    //
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
             SqlConnection cn = new SqlConnection(conS);
             cn.Open();
             DataTable dt = new DataTable();
@@ -199,20 +195,21 @@ namespace HomeFitness.Controls.Calendar
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                string cos = dr["Nr_Planu"].ToString();
-                comboBox1.Items.Add(cos);
-                //comboBox1.Items.Add = new ListViewItem(dr["Nr_Planu"].ToString());
-                //item.SubItems.Add(dr["Dzien"].ToString());
-                //item.SubItems.Add(dr["Godzina"].ToString());
-                //item.SubItems.Add(dr["Treningi_Nr_treningu"].ToString());
-                //listView1.Items.Add(item);
+                
+                string cos = dr["Nr_treningu"].ToString();
+                string cos2 = dr["Nazwa"].ToString();
+                string cos3 = cos + " " + cos2;
+                comboBox1.Items.Add(cos3);
+                comboBox2.Items.Add(cos3);
             }
             cn.Close();
         }
-        */
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
         
+ 
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+ 
         }
+
     }
 }

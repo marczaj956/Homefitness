@@ -32,12 +32,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.plantreninguBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bazaDataSet = new HomeFitness.bazaDataSet();
             this.plan_treninguTableAdapter = new HomeFitness.bazaDataSetTableAdapters.Plan_treninguTableAdapter();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,11 +49,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -65,12 +63,14 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.treningiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treningiTableAdapter = new HomeFitness.bazaDataSetTableAdapters.TreningiTableAdapter();
             this.fKASS9BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sCTTableAdapter = new HomeFitness.bazaDataSetTableAdapters.SCTTableAdapter();
             this.plantreninguBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.plantreninguBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -116,16 +116,6 @@
             this.label1.TabIndex = 45;
             this.label1.Text = "Zaplanowane Treningi";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.plantreninguBindingSource, "Nr_Planu", true));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(248, 21);
-            this.comboBox1.TabIndex = 46;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // plantreninguBindingSource
             // 
             this.plantreninguBindingSource.DataMember = "Plan_treningu";
@@ -154,12 +144,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.dateTimePicker3);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.ImageIndex = 0;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -170,6 +160,20 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dodaj";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateTimePicker3.CustomFormat = "hh:mm";
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dateTimePicker3.Location = new System.Drawing.Point(4, 123);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.ShowUpDown = true;
+            this.dateTimePicker3.Size = new System.Drawing.Size(248, 20);
+            this.dateTimePicker3.TabIndex = 84;
+            this.dateTimePicker3.Value = new System.DateTime(2020, 5, 29, 0, 0, 0, 0);
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // label6
             // 
@@ -274,12 +278,12 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dateTimePicker4);
+            this.tabPage3.Controls.Add(this.dateTimePicker2);
             this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.comboBox2);
-            this.tabPage3.Controls.Add(this.dateTimePicker2);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.button7);
             this.tabPage3.Controls.Add(this.textBox7);
@@ -304,13 +308,6 @@
             this.label7.Size = new System.Drawing.Size(71, 18);
             this.label7.TabIndex = 92;
             this.label7.Text = "Godzina";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(4, 229);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(248, 20);
-            this.textBox2.TabIndex = 89;
             // 
             // label10
             // 
@@ -342,13 +339,6 @@
             this.comboBox2.Size = new System.Drawing.Size(248, 21);
             this.comboBox2.TabIndex = 88;
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(4, 185);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(248, 20);
-            this.dateTimePicker2.TabIndex = 87;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(4, 294);
@@ -358,6 +348,7 @@
             this.button6.TabIndex = 86;
             this.button6.Text = "EDYTUJ PLAN TRENINGÓW";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -446,20 +437,6 @@
             this.columnHeader3.Text = "Trening";
             this.columnHeader3.Width = 100;
             // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateTimePicker3.CustomFormat = "hh-mm";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dateTimePicker3.Location = new System.Drawing.Point(3, 123);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.ShowUpDown = true;
-            this.dateTimePicker3.Size = new System.Drawing.Size(249, 20);
-            this.dateTimePicker3.TabIndex = 84;
-            this.dateTimePicker3.Value = new System.DateTime(2020, 5, 29, 0, 0, 0, 0);
-            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
-            // 
             // treningiBindingSource
             // 
             this.treningiBindingSource.DataMember = "Treningi";
@@ -482,6 +459,37 @@
             // 
             this.plantreninguBindingSource1.DataMember = "Plan_treningu";
             this.plantreninguBindingSource1.DataSource = this.bazaDataSet;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(4, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(248, 21);
+            this.comboBox1.TabIndex = 85;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(4, 185);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(248, 20);
+            this.dateTimePicker2.TabIndex = 93;
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateTimePicker4.CustomFormat = "hh:mm";
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker4.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dateTimePicker4.Location = new System.Drawing.Point(4, 229);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.ShowUpDown = true;
+            this.dateTimePicker4.Size = new System.Drawing.Size(248, 20);
+            this.dateTimePicker4.TabIndex = 94;
+            this.dateTimePicker4.Value = new System.DateTime(2020, 5, 29, 0, 0, 0, 0);
             // 
             // Calendar
             // 
@@ -517,7 +525,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource plantreninguBindingSource;
         private bazaDataSet bazaDataSet;
         private bazaDataSetTableAdapters.Plan_treninguTableAdapter plan_treninguTableAdapter;
@@ -534,11 +541,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox7;
@@ -556,5 +561,8 @@
         private System.Windows.Forms.BindingSource plantreninguBindingSource1;
         private System.Windows.Forms.BindingSource fKASS9BindingSource;
         private bazaDataSetTableAdapters.SCTTableAdapter sCTTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
