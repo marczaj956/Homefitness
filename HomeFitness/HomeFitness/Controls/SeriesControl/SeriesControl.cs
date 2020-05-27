@@ -119,7 +119,7 @@ namespace HomeFitness.Controls.SeriesControl
                 if (item.Text == comboBox2.Text)
                 {
                     exist = 1;
-                    MessageBox.Show("Takie cwiczenie juz istnieje");
+                   
                 }
             }
 
@@ -132,6 +132,10 @@ namespace HomeFitness.Controls.SeriesControl
                 comboBox2.SelectedIndex = -1;
 
             }
+            else if (exist == 1)
+            {
+                MessageBox.Show("Takie cwiczenie juz istnieje");
+            } 
             else
             {
                 MessageBox.Show("Sprawdź czy wszystkie pola są poprawnie wypełnione");
@@ -164,177 +168,193 @@ namespace HomeFitness.Controls.SeriesControl
         private void button3_Click(object sender, EventArgs e) //zapisz serie
         {
 
-
-            //dodanie serii
-            if (edit == 0 && textBox3.Text != "" && comboBox1.Text != "" && listView2.Items.Count != 0)
-            {
-
-                //nr serii
-
-                string name = textBox3.Text;
-                string part = comboBox1.Text;
-
-                using (SqlConnection cn1 = new SqlConnection(conS))
-                using (SqlCommand command = cn1.CreateCommand())
-                {
-                    command.CommandText = "INSERT INTO Seria_cwiczen (Nazwa_serii, Cwiczona_partia) VALUES(@name, @part)";
-
-                    command.Parameters.AddWithValue("@name", name);
-                    command.Parameters.AddWithValue("@part", part);
-                    cn1.Open();
-                    command.ExecuteNonQuery();
-                    cn1.Close();
-                }
-
-                //połączenie z bazą 
-                SqlConnection cn = new SqlConnection(conS);
+            string name = textBox3.Text;
+            name.Trim();
+              SqlConnection cn = new SqlConnection(conS);
                 cn.Open();
                 DataTable dt2 = new DataTable();
                 string que1 = "Select Nr_Serii from Seria_cwiczen where Nazwa_serii like '" + textBox3.Text + "' ";
                 SqlDataAdapter da2 = new SqlDataAdapter(que1, cn);
-                da2.Fill(dt2);
-                string seID = "0";
-                foreach (DataRow dr in dt2.Rows)
-                {
-                    seID = dr["Nr_Serii"].ToString();
-                }
-                cn.Close();
-
-
-
-                int temp = 0;
-                foreach (ListViewItem items in listView2.Items)
-                {
-                    //nr cwiczenia
-                    DataTable dt1 = new DataTable();
-                    ListViewItem item = listView2.Items[temp];
-                    string nameex = item.Text;
-                    nameex = nameex.Trim();
-                    //ilosc
-                    string count = item.SubItems[1].Text;
-                    string que = "Select Nr_cwiczenia from Cwiczenia where Nazwa like '" + nameex + "' ";
-                    SqlDataAdapter da1 = new SqlDataAdapter(que, cn);
-                    da1.Fill(dt1);
-                    string exID = "0";
-                    temp++;
-
-                    foreach (DataRow dr in dt1.Rows)
-                    {
-                        exID = dr["Nr_cwiczenia"].ToString();
-                    }
-
-                    if (seID != "0" && exID != "0")
-                    {
-
-                        using (SqlConnection cn1 = new SqlConnection(conS))
-                        using (SqlCommand command = cn1.CreateCommand())
-                        {
-                            command.CommandText = "INSERT INTO CwSC (Cwiczenia_Nr_cwiczenia, Seria_cwiczen_Nr_Serii, Ilosc) VALUES (@exNum, @seNum, @count)";
-
-                            command.Parameters.AddWithValue("@exNum", exID);
-                            command.Parameters.AddWithValue("@seNum", seID);
-                            command.Parameters.AddWithValue("@count", count);
-                            cn1.Open();
-                            int rowsAdded = command.ExecuteNonQuery();
-                            if (rowsAdded > 0)
-                                MessageBox.Show("Dodano serie!");
-                            else
-                                MessageBox.Show("Nie dodano serii");
-                            cn1.Close();
-                        }
-                    }
-                }
-            }
-            else //przy edycji
+            if (da2.Fill(dt2) < 2)
             {
-                //połączenie z bazą 
-                SqlConnection cn = new SqlConnection(conS);
-                cn.Open();
-                //nr serii
-                DataTable dt2 = new DataTable();
-                string que1 = "Select Nr_Serii from Seria_cwiczen where Nazwa_serii like '" + textBox3.Text + "' ";
-                SqlDataAdapter da2 = new SqlDataAdapter(que1, cn);
-                da2.Fill(dt2);
-                string seID = "0";
-                foreach (DataRow dr in dt2.Rows)
-                {
-                    seID = dr["Nr_Serii"].ToString();
-                }
-                //update serii
-                string que = "UPDATE Seria_cwiczen SET Nazwa_serii= '" + textBox3.Text + "', Cwiczona_partia = '" + comboBox1.Text + "' WHERE Nazwa_serii='" + textBox3.Text + "'";
-                SqlDataAdapter da = new SqlDataAdapter(que, cn);
-                da.SelectCommand.ExecuteNonQuery();
 
-                int temp = 0;// pomocnicza do nr cwiczenia
-                cn.Close();
-                foreach (ListViewItem items in listView2.Items)
+                //dodanie serii
+                if (edit == 0 && textBox3.Text != "" && comboBox1.Text != "" && listView2.Items.Count != 0)
                 {
 
-                    //nr cwiczenia
-                    DataTable dt1 = new DataTable();
-                    ListViewItem item = listView2.Items[temp];
-                    string name = item.Text;
-                    name = name.Trim();
-                    //ilosc
-                    string count = item.SubItems[1].Text;
-                    if (count == "")
+                    //nr serii
+
+                    string part = comboBox1.Text;
+
+                    using (SqlConnection cn1 = new SqlConnection(conS))
+                    using (SqlCommand command = cn1.CreateCommand())
                     {
-                        count = "0";
+                        command.CommandText = "INSERT INTO Seria_cwiczen (Nazwa_serii, Cwiczona_partia) VALUES(@name, @part)";
+
+                        command.Parameters.AddWithValue("@name", name);
+                        command.Parameters.AddWithValue("@part", part);
+                        cn1.Open();
+                        command.ExecuteNonQuery();
+                        cn1.Close();
                     }
-                    cn.Open();
-                    string que4 = "Select Nr_cwiczenia from Cwiczenia where Nazwa like '" + name + "' ";
-                    SqlDataAdapter da1 = new SqlDataAdapter(que4, cn);
-                    da1.Fill(dt1);
+
+                    //połączenie z bazą 
+                   // SqlConnection cn = new SqlConnection(conS);
+                    //cn.Open();
+                    DataTable dt6 = new DataTable();
+                    string que6 = "Select Nr_Serii from Seria_cwiczen where Nazwa_serii like '" + textBox3.Text + "' ";
+                    SqlDataAdapter da6 = new SqlDataAdapter(que6, cn);
+                    da6.Fill(dt6);
+                    string seID = "0";
+                    foreach (DataRow dr in dt6.Rows)
+                    {
+                        seID = dr["Nr_Serii"].ToString();
+                    }
                     cn.Close();
-                    string exID = "0";
-                    temp++;
 
-                    foreach (DataRow dr in dt1.Rows)
+
+
+                    int temp = 0;
+                    foreach (ListViewItem items in listView2.Items)
                     {
-                        exID = dr["Nr_cwiczenia"].ToString();
-                    }
+                        //nr cwiczenia
+                        DataTable dt1 = new DataTable();
+                        ListViewItem item = listView2.Items[temp];
+                        string nameex = item.Text;
+                        nameex = nameex.Trim();
+                        //ilosc
+                        string count = item.SubItems[1].Text;
+                        string que = "Select Nr_cwiczenia from Cwiczenia where Nazwa like '" + nameex + "' ";
+                        SqlDataAdapter da1 = new SqlDataAdapter(que, cn);
+                        da1.Fill(dt1);
+                        string exID = "0";
+                        temp++;
 
-
-                    if (seID != "0" && exID != "0")
-                    {
-                        using (SqlConnection cn1 = new SqlConnection(conS))
-                        using (SqlCommand command = cn1.CreateCommand())
+                        foreach (DataRow dr in dt1.Rows)
                         {
-                            command.CommandText = "UPDATE CwSC SET Ilosc = @count  WHERE Seria_cwiczen_Nr_Serii = @seNum and Cwiczenia_Nr_cwiczenia = @exNum ";
+                            exID = dr["Nr_cwiczenia"].ToString();
+                        }
 
-                            command.Parameters.AddWithValue("@exNum", exID);
-                            command.Parameters.AddWithValue("@seNum", seID);
-                            command.Parameters.AddWithValue("@count", count);
-                            cn1.Open();
-                            command.ExecuteNonQuery();
-                            int rowsAddedU = command.ExecuteNonQuery();
-                            cn1.Close();
-                            // Let's ask the db to execute the query
+                        if (seID != "0" && exID != "0")
+                        {
 
-                            if (rowsAddedU <= 0)
+                            using (SqlConnection cn1 = new SqlConnection(conS))
+                            using (SqlCommand command = cn1.CreateCommand())
                             {
+                                command.CommandText = "INSERT INTO CwSC (Cwiczenia_Nr_cwiczenia, Seria_cwiczen_Nr_Serii, Ilosc) VALUES (@exNum, @seNum, @count)";
 
-                                command.CommandText = "INSERT INTO CwSC (Cwiczenia_Nr_cwiczenia, Seria_cwiczen_Nr_Serii, Ilosc) VALUES (@exNum1, @seNum1, @count1)";
-
-                                command.Parameters.AddWithValue("@exNum1", exID);
-                                command.Parameters.AddWithValue("@seNum1", seID);
-                                command.Parameters.AddWithValue("@count1", count);
+                                command.Parameters.AddWithValue("@exNum", exID);
+                                command.Parameters.AddWithValue("@seNum", seID);
+                                command.Parameters.AddWithValue("@count", count);
                                 cn1.Open();
-                                command.ExecuteNonQuery();
+                                int rowsAdded = command.ExecuteNonQuery();
+                                if (rowsAdded > 0)
+                                {
+                                    refresh();
+                                    MessageBox.Show("Dodano serie!");
+                                }
+                                else
+                                    MessageBox.Show("Nie dodano serii");
                                 cn1.Close();
                             }
                         }
                     }
+                }
+                else //przy edycji
+                {
+
+                    //nr serii
+
+                    DataTable dt5 = new DataTable();
+                    string que5 = "Select Nr_Serii from Seria_cwiczen where Nazwa_serii like '" + name + "' ";
+                    SqlDataAdapter da5 = new SqlDataAdapter(que5, cn);
+                    da5.Fill(dt5);
+                    string seID = "0";
+                    foreach (DataRow dr in dt5.Rows)
+                    {
+                        seID = dr["Nr_Serii"].ToString();
+                    }
+                    //update serii
+                    string que = "UPDATE Seria_cwiczen SET Nazwa_serii= '" + textBox3.Text + "', Cwiczona_partia = '" + comboBox1.Text + "' WHERE Nazwa_serii='" + textBox3.Text + "'";
+                    SqlDataAdapter da = new SqlDataAdapter(que, cn);
+                    da.SelectCommand.ExecuteNonQuery();
+
+                    int temp = 0;// pomocnicza do nr cwiczenia
+                    cn.Close();
+                    foreach (ListViewItem items in listView2.Items)
+                    {
+
+                        //nr cwiczenia
+                        DataTable dt1 = new DataTable();
+                        ListViewItem item = listView2.Items[temp];
+                        string name1 = item.Text;
+                        name1 = name1.Trim();
+                        //ilosc
+                        string count = item.SubItems[1].Text;
+                        if (count == "")
+                        {
+                            count = "0";
+                        }
+                        cn.Open();
+                        string que4 = "Select Nr_cwiczenia from Cwiczenia where Nazwa like '" + name1 + "' ";
+                        SqlDataAdapter da1 = new SqlDataAdapter(que4, cn);
+                        da1.Fill(dt1);
+                        cn.Close();
+                        string exID = "0";
+                        temp++;
+
+                        foreach (DataRow dr in dt1.Rows)
+                        {
+                            exID = dr["Nr_cwiczenia"].ToString();
+                        }
+
+
+                        if (seID != "0" && exID != "0")
+                        {
+                            using (SqlConnection cn1 = new SqlConnection(conS))
+                            using (SqlCommand command = cn1.CreateCommand())
+                            {
+                                command.CommandText = "UPDATE CwSC SET Ilosc = @count  WHERE Seria_cwiczen_Nr_Serii = @seNum and Cwiczenia_Nr_cwiczenia = @exNum ";
+
+                                command.Parameters.AddWithValue("@exNum", exID);
+                                command.Parameters.AddWithValue("@seNum", seID);
+                                command.Parameters.AddWithValue("@count", count);
+                                cn1.Open();
+                                command.ExecuteNonQuery();
+                                int rowsAddedU = command.ExecuteNonQuery();
+                                cn1.Close();
+                                // Let's ask the db to execute the query
+
+                                if (rowsAddedU <= 0)
+                                {
+
+                                    command.CommandText = "INSERT INTO CwSC (Cwiczenia_Nr_cwiczenia, Seria_cwiczen_Nr_Serii, Ilosc) VALUES (@exNum1, @seNum1, @count1)";
+
+                                    command.Parameters.AddWithValue("@exNum1", exID);
+                                    command.Parameters.AddWithValue("@seNum1", seID);
+                                    command.Parameters.AddWithValue("@count1", count);
+                                    cn1.Open();
+                                    command.ExecuteNonQuery();
+                                    cn1.Close();
+                                }
+                            }
+                        }
+
+                    }
+                    MessageBox.Show("Zapisano zmiany");
+                    textBox3.ReadOnly=false;
+                    edit = 0;
 
                 }
-                MessageBox.Show("Zapisano zmiany");
-                edit = 0;
 
+                clean();
+                this.splitContainer1.Panel2.Hide();
+                this.splitContainer1.Panel2Collapsed = true;
             }
-
-            clean();
-            this.splitContainer1.Panel2.Hide();
-            this.splitContainer1.Panel2Collapsed = true;
+            else
+            {
+                MessageBox.Show("Nazwy serii nie mogą się powtarzać");
+            }
         }
 
         private void clean()
@@ -360,7 +380,7 @@ namespace HomeFitness.Controls.SeriesControl
 
         }
 
-        private void button6_Click(object sender, EventArgs e) //odswiez
+        private void refresh() //odswiez
         {
             listView1.Items.Clear();
             showBase();
@@ -396,6 +416,7 @@ namespace HomeFitness.Controls.SeriesControl
                     }
 
                     cn.Close();
+                    textBox3.ReadOnly = true;
                 }
                 else
                 {
@@ -432,6 +453,7 @@ namespace HomeFitness.Controls.SeriesControl
                 SqlDataAdapter da1 = new SqlDataAdapter("DELETE from Seria_cwiczen WHERE Nr_Serii='" + textBox2.Text + "'", cn);
                 da1.SelectCommand.ExecuteNonQuery();
                 cn.Close();
+                refresh();
                 MessageBox.Show("Usunięto serie");
                 textBox2.Text = "";
 
