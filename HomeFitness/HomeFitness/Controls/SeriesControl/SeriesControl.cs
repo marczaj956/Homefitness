@@ -235,22 +235,15 @@ namespace HomeFitness.Controls.SeriesControl
                             command.Parameters.AddWithValue("@seNum", seID);
                             command.Parameters.AddWithValue("@count", count);
                             cn1.Open();
-                            command.ExecuteNonQuery();
-                            // Let's ask the db to execute the query
                             int rowsAdded = command.ExecuteNonQuery();
                             if (rowsAdded > 0)
                                 MessageBox.Show("Dodano serie!");
                             else
-                                // Well this should never really happen
                                 MessageBox.Show("Nie dodano serii");
                             cn1.Close();
-
                         }
-
-
                     }
                 }
-                // MessageBox.Show("Dodano serię");
             }
             else //przy edycji
             {
@@ -376,51 +369,47 @@ namespace HomeFitness.Controls.SeriesControl
         private void button1_Click(object sender, EventArgs e) //edytuj
         {
             edit = 1;
-            int pom = 0;
-
-
             int pom1;
             bool isNumeric = int.TryParse(textBox1.Text, out pom1);
 
             if (isNumeric)
             {
-
-                //pojawianie
-
-                this.splitContainer1.Panel2.Show();
-                this.splitContainer1.Panel2Collapsed = false;
-                exInCombo();
                 //załadowanie danych o serii  
-                //cwiczenia
                 SqlConnection cn = new SqlConnection(conS);
                 cn.Open();
-
                 DataTable dt1 = new DataTable();
                 SqlDataAdapter da1 = new SqlDataAdapter("SELECT Seria_cwiczen.Nazwa_serii,Cwiczenia.Nazwa,Seria_cwiczen.Cwiczona_partia, CwSC.Ilosc from Seria_cwiczen JOIN CwSC on Seria_cwiczen.Nr_Serii = CwSC.Seria_cwiczen_Nr_Serii JOIN Cwiczenia on Cwiczenia.Nr_cwiczenia = CwSC.Cwiczenia_Nr_cwiczenia WHERE Seria_cwiczen.Nr_Serii = '" + textBox1.Text + "'", cn);
-                da1.Fill(dt1);
-                foreach (DataRow dr in dt1.Rows)
+                if (da1.Fill(dt1) != 0)
                 {
-                    textBox3.Text = dr["Nazwa_serii"].ToString();
-                    comboBox1.Text = dr["Cwiczona_partia"].ToString();
-                    ListViewItem item = new ListViewItem(dr["Nazwa"].ToString());
-                    item.SubItems.Add(dr["Ilosc"].ToString());
-                    listView2.Items.Add(item);
-                    comboBox3.Items.Add(dr["Nazwa"].ToString());
-                    pom++;
-                }
+                    this.splitContainer1.Panel2.Show();
+                    this.splitContainer1.Panel2Collapsed = false;
+                    exInCombo();
 
-                cn.Close();
+                    foreach (DataRow dr in dt1.Rows)
+                    {
+                        textBox3.Text = dr["Nazwa_serii"].ToString();
+                        comboBox1.Text = dr["Cwiczona_partia"].ToString();
+                        ListViewItem item = new ListViewItem(dr["Nazwa"].ToString());
+                        item.SubItems.Add(dr["Ilosc"].ToString());
+                        listView2.Items.Add(item);
+                        comboBox3.Items.Add(dr["Nazwa"].ToString());
+                    }
+
+                    cn.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Podano błędny index");
+                    textBox1.Clear();
+                }
+                   
             }
-            else if (pom == 0)
+            else
             {
-                this.splitContainer1.Panel2.Hide();
-                this.splitContainer1.Panel2Collapsed = true;
                 MessageBox.Show("Podano błędny index");
                 textBox1.Clear();
             }
-
         }
-
         private void button7_Click(object sender, EventArgs e) //usuń
         {
 
