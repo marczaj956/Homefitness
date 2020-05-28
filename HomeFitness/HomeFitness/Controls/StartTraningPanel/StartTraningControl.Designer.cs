@@ -28,22 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvTrainings = new System.Windows.Forms.DataGridView();
             this.bazaDataSet1 = new HomeFitness.bazaDataSet();
             this.btnSTART = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrainings)).BeginInit();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvTrainings
-            // 
-            this.dgvTrainings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrainings.Location = new System.Drawing.Point(115, 98);
-            this.dgvTrainings.Name = "dgvTrainings";
-            this.dgvTrainings.Size = new System.Drawing.Size(343, 178);
-            this.dgvTrainings.TabIndex = 1;
-            this.dgvTrainings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrainings_CellContentClick);
             // 
             // bazaDataSet1
             // 
@@ -79,26 +72,59 @@
             this.label1.Text = "Twoje najbliższe treningi";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(19, 59);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(263, 174);
+            this.listView1.TabIndex = 63;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "Data";
+            this.ID.Width = 40;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Godzina";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nr treningu";
+            this.columnHeader2.Width = 113;
+            // 
             // StartTraningControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSTART);
-            this.Controls.Add(this.dgvTrainings);
             this.Name = "StartTraningControl";
             this.Size = new System.Drawing.Size(798, 559);
             this.Load += new System.EventHandler(this.StartTraningControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvTrainings;
         private bazaDataSet bazaDataSet1;
         private System.Windows.Forms.Button btnSTART;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

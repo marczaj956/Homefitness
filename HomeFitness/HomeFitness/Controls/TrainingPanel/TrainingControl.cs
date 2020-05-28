@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HomeFitness.bazaDataSetTableAdapters;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace HomeFitness.Controls.TrainingPanel
 {
     public partial class TrainingControl : UserControl
     {
+        //int x;
+        string conS;
+        Stopwatch stopwatch = new Stopwatch();
+        int i = 0;
         private Panel _mainPanel1;
         public TrainingControl()
         {
@@ -22,20 +29,41 @@ namespace HomeFitness.Controls.TrainingPanel
         public TrainingControl(Panel mainPanel)
         {
             InitializeComponent();
-            Init();
-            _mainPanel1 = mainPanel;
-        }
 
-        private void Init()
+            _mainPanel1 = mainPanel;
+            conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+            pobieranietreningu();
+            pokabaze();
+            textBox1.Text = listView1.Items[i].SubItems[1].Text;
+            stopwatch.Start();
+        }
+        private void pobieranietreningu() 
+        { 
+        
+        
+        
+        }
+            private void pokabaze() // poka poka baze mi
         {
-            using (var adapter = new TreningiTableAdapter())
+
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("select * from cwiczenia where Cwiczenia.Nazwa in (select   nazwa  from Cwiczenia as cw join CwSC on cw.Nr_cwiczenia = CwSC.Cwiczenia_Nr_cwiczenia join SCT on CwSC.Seria_cwiczen_Nr_Serii =SCT.Seria_cwiczen_Nr_Serii join Plan_treningu on Plan_treningu.Treningi_Nr_treningu=sct.Treningi_Nr_treningu where Plan_treningu.Treningi_Nr_treningu=1 group by nazwa)", cn);
+            da.Fill(dt);
+          
+            foreach (DataRow dr in dt.Rows)
             {
-                using (bazaDataSet.TreningiDataTable dt = new bazaDataSet.TreningiDataTable())
-                {
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
+                ListViewItem item = new ListViewItem(dr["Nr_cwiczenia"].ToString());
+                item.SubItems.Add(dr["Nazwa"].ToString());
+                item.SubItems.Add(dr["Spalone_Kalorie"].ToString());
+                item.SubItems.Add(dr["Cwiczone_Miesnie"].ToString());
+                item.SubItems.Add(dr["Opis"].ToString());
+                item.SubItems.Add(dr["Zalecana_ilosc"].ToString());
+                listView1.Items.Add(item);
             }
+           
+            cn.Close();
         }
 
 
@@ -60,5 +88,61 @@ namespace HomeFitness.Controls.TrainingPanel
         {
 
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            i++;
+            if (i <= listView1.Items.Count - 1)
+            {
+
+                textBox1.Text = listView1.Items[i].SubItems[1].Text;
+
+                if (i == listView1.Items.Count - 1)
+                {
+                    button1.Text = "zakoncz trening";
+                }
+            }
+            else
+            {
+                button1.Hide();
+                stopwatch.Stop();
+                var milliSeocnds = stopwatch.ElapsedMilliseconds;
+                var timeSpan = stopwatch.Elapsed;
+                MessageBox.Show((milliSeocnds / 1000).ToString());
+               /* 
+                SqlConnection cn = new SqlConnection(conS);
+                cn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("DELETE from Plan_treningu WHERE Nr_Planu='" + x + "' ", cn);
+                da.SelectCommand.ExecuteNonQuery();
+                cn.Close();
+               */
+                
+            }
+          
+        }
+
+
+
+
+
+       
+       
     }
+
 }
+

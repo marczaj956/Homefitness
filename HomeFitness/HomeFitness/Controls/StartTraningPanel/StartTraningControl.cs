@@ -17,94 +17,53 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace HomeFitness
 {
+    
     public partial class StartTraningControl : UserControl
     {
+        string conS;
         private string _mojaZmienna = "";
         private Panel _mainPanel;
 
         public StartTraningControl()
         {
             InitializeComponent();
-            Init();
+            
         }
 
-        public void UpdateMainPanel(Panel panel)
-        {
-
-            // naucz sie wzorca DEPENDENCY INJECTION
-            // razem z tym w parze idzie wzorzec IoT - Inversion of Control - czyli kontenery typu AUTOFAC
-            if (panel == null) throw new ArgumentNullException("Panel can not be null or empty");
-            _mainPanel = panel;
-        }
+   
 
         public StartTraningControl(Panel mainPanel)
         {
             InitializeComponent();
-            Init();
             _mainPanel = mainPanel;
-            int x = Init1();
+            conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+            pokabaze();
+
         }
-        private void Init()
+
+
+        private void pokabaze() // poka poka baze mi
         {
-            using (var adapter = new Plan_treninguTableAdapter())
+
+            SqlConnection cn = new SqlConnection(conS);
+            cn.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Plan_treningu order by Dzien asc", cn);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                using (bazaDataSet.Plan_treninguDataTable dt = new bazaDataSet.Plan_treninguDataTable())
-                {
-                    
-                    adapter.Fill(dt);
-
-                    // bazy danych => Entity Framework 6  // NHibernate
-
-                    var time = new TimeSpanConverter();
-
-                    var res1 = dt.
-                    Where(s => Convert.ToDateTime(s["Dzien"]) >= DateTime.Today
-                        && ((TimeSpan)time.ConvertFromString((s["Godzina"].ToString())) >= DateTime.Now.TimeOfDay)).FirstOrDefault();
-
-                    var res = dt.
-                    Where(s =>  Convert.ToDateTime(s["Dzien"]) >= DateTime.Today
-                        && ((TimeSpan)time.ConvertFromString((s["Godzina"].ToString())) >= DateTime.Now.TimeOfDay))
-                    .Select(w => new { Data = w.Dzien, Godzina = w.Godzina, NrTreningu = w.Treningi_Nr_treningu})
-                        .ToArray();
-
-                    dgvTrainings.DataSource = res;
-                    
-                   
-                }
+                ListViewItem item = new ListViewItem(dr["Dzien"].ToString());
+                item.SubItems.Add(dr["godzina"].ToString());
+                item.SubItems.Add(dr["Treningi_Nr_treningu"].ToString());
+              
+                listView1.Items.Add(item);
             }
-            
+            cn.Close();
         }
-        private int Init1()
-        {
-            using (var adapter = new Plan_treninguTableAdapter())
-            {
-                using (bazaDataSet.Plan_treninguDataTable dt = new bazaDataSet.Plan_treninguDataTable())
-                {
-
-                    adapter.Fill(dt);
-
-                    // bazy danych => Entity Framework 6  // NHibernate
-
-                    var time = new TimeSpanConverter();
-
-                    var res1 = dt.
-                    Where(s => Convert.ToDateTime(s["Dzien"]) >= DateTime.Today
-                        && ((TimeSpan)time.ConvertFromString((s["Godzina"].ToString())) >= DateTime.Now.TimeOfDay)).FirstOrDefault();
-
-                    var res = dt.
-                    Where(s => Convert.ToDateTime(s["Dzien"]) >= DateTime.Today
-                        && ((TimeSpan)time.ConvertFromString((s["Godzina"].ToString())) >= DateTime.Now.TimeOfDay))
-                    .Select(w => new { Data = w.Dzien, Godzina = w.Godzina, NrTreningu = w.Treningi_Nr_treningu })
-                        .ToArray();
-
-                    dgvTrainings.DataSource = res;
-                    return res1.Treningi_Nr_treningu;
-
-
-                }
-            }
-
-        }
+        
+           
+        
+       
         private void dgvTrainings_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -130,6 +89,11 @@ namespace HomeFitness
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
