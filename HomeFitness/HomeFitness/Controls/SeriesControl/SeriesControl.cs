@@ -480,5 +480,10 @@ namespace HomeFitness.Controls.SeriesControl
         {
 
         }
+
+        private void splitContainer1_Panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -138,6 +138,9 @@
     <EmbeddedResource Include="Controls\AchPanel\Ach.resx">
       <DependentUpon>Ach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Calendar\Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\exbase\exbase.resx">
       <DependentUpon>exbase.cs</DependentUpon>
     </EmbeddedResource>

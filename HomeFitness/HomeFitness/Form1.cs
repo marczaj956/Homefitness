@@ -184,5 +184,10 @@ namespace HomeFitness
                             "Dominika Wysocka" + "\n" +
                             "Marcin Zajonc" + "\n","Autorzy" );
         }
+
+        private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

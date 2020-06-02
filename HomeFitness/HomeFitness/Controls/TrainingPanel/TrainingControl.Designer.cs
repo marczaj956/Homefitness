@@ -44,12 +44,12 @@
             // btnSTOP
             // 
             this.btnSTOP.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSTOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSTOP.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSTOP.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSTOP.Location = new System.Drawing.Point(592, 444);
+            this.btnSTOP.Location = new System.Drawing.Point(589, 412);
             this.btnSTOP.Margin = new System.Windows.Forms.Padding(2);
             this.btnSTOP.Name = "btnSTOP";
-            this.btnSTOP.Size = new System.Drawing.Size(138, 65);
+            this.btnSTOP.Size = new System.Drawing.Size(143, 65);
             this.btnSTOP.TabIndex = 14;
             this.btnSTOP.Text = "STOP";
             this.btnSTOP.UseVisualStyleBackColor = true;
@@ -64,11 +64,12 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(77, 67);
+            this.listView1.Location = new System.Drawing.Point(79, 67);
             this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(445, 170);
+            this.listView1.Size = new System.Drawing.Size(653, 208);
             this.listView1.TabIndex = 64;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -77,59 +78,63 @@
             // ID
             // 
             this.ID.Text = "Nr";
-            this.ID.Width = 27;
+            this.ID.Width = 34;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nazwa";
-            this.columnHeader1.Width = 79;
+            this.columnHeader1.Width = 125;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Kcal";
-            this.columnHeader2.Width = 36;
+            this.columnHeader2.Width = 58;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Mięśnie";
-            this.columnHeader3.Width = 81;
+            this.columnHeader3.Width = 102;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Opis";
-            this.columnHeader4.Width = 90;
+            this.columnHeader4.Width = 244;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Ilosc";
-            this.columnHeader5.Width = 71;
+            this.columnHeader5.Width = 56;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 329);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Location = new System.Drawing.Point(79, 337);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(445, 20);
+            this.textBox1.Size = new System.Drawing.Size(369, 24);
             this.textBox1.TabIndex = 65;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 298);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(74, 308);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 13);
+            this.label1.Size = new System.Drawing.Size(319, 26);
             this.label1.TabIndex = 66;
-            this.label1.Text = "Teraz wykonujesz ćwiczenie";
+            this.label1.Text = "Teraz wykonujesz ćwiczenie:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(405, 464);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(589, 308);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 26);
+            this.button1.Size = new System.Drawing.Size(143, 64);
             this.button1.TabIndex = 67;
-            this.button1.Text = "Następne Ćwiczenie";
+            this.button1.Text = "Następne ćwiczenie";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

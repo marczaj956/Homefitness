@@ -48,7 +48,7 @@
             this.btnSTART.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSTART.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSTART.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSTART.Location = new System.Drawing.Point(592, 444);
+            this.btnSTART.Location = new System.Drawing.Point(330, 437);
             this.btnSTART.Margin = new System.Windows.Forms.Padding(2);
             this.btnSTART.Name = "btnSTART";
             this.btnSTART.Size = new System.Drawing.Size(138, 65);
@@ -62,12 +62,12 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(15, 27);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(115, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 30);
+            this.label1.Size = new System.Drawing.Size(715, 98);
             this.label1.TabIndex = 23;
             this.label1.Text = "Twoje najbliższe treningi";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -79,10 +79,10 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(19, 59);
+            this.listView1.Location = new System.Drawing.Point(217, 164);
             this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(263, 174);
+            this.listView1.Size = new System.Drawing.Size(365, 231);
             this.listView1.TabIndex = 63;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;

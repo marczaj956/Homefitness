@@ -125,6 +125,7 @@ namespace HomeFitness.Controls.Calendar
             comboBox2.Text = "";
 
             MessageBox.Show("Poprawnie zedytowano ćwiczenie");
+            refresh();
         }
 
         private void button4_Click(object sender, EventArgs e) //dodanie do bazy
@@ -140,6 +141,7 @@ namespace HomeFitness.Controls.Calendar
             da.SelectCommand.ExecuteNonQuery();
             cn.Close();
             MessageBox.Show("Dodano trening do planu");
+            refresh();
         }
 
 
@@ -157,10 +159,15 @@ namespace HomeFitness.Controls.Calendar
                 da.SelectCommand.ExecuteNonQuery();
                 cn.Close();
                 MessageBox.Show("Usunięto zaplanowany trening");
+                refresh();
             }
         }
 
         private void button1_Click(object sender, EventArgs e) 
+        {
+            
+        }
+        private void refresh()
         {
             listView1.Items.Clear();
             SqlConnection cn = new SqlConnection(conS);
@@ -211,5 +218,24 @@ namespace HomeFitness.Controls.Calendar
  
         }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

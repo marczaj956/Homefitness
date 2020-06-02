@@ -57,9 +57,10 @@
             // NowaWaga
             // 
             this.NowaWaga.Controls.Add(this.textnw);
-            this.NowaWaga.Location = new System.Drawing.Point(238, 64);
+            this.NowaWaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NowaWaga.Location = new System.Drawing.Point(42, 108);
             this.NowaWaga.Name = "NowaWaga";
-            this.NowaWaga.Size = new System.Drawing.Size(116, 69);
+            this.NowaWaga.Size = new System.Drawing.Size(234, 83);
             this.NowaWaga.TabIndex = 1;
             this.NowaWaga.TabStop = false;
             this.NowaWaga.Text = "Nowa Waga";
@@ -68,7 +69,7 @@
             // textnw
             // 
             this.textnw.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textnw.Location = new System.Drawing.Point(7, 20);
+            this.textnw.Location = new System.Drawing.Point(119, 31);
             this.textnw.Name = "textnw";
             this.textnw.Size = new System.Drawing.Size(100, 38);
             this.textnw.TabIndex = 0;
@@ -81,9 +82,10 @@
             // Pwaga
             // 
             this.Pwaga.Controls.Add(this.textpw);
-            this.Pwaga.Location = new System.Drawing.Point(409, 64);
+            this.Pwaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Pwaga.Location = new System.Drawing.Point(291, 108);
             this.Pwaga.Name = "Pwaga";
-            this.Pwaga.Size = new System.Drawing.Size(116, 69);
+            this.Pwaga.Size = new System.Drawing.Size(234, 83);
             this.Pwaga.TabIndex = 2;
             this.Pwaga.TabStop = false;
             this.Pwaga.Text = "Poprzednia Waga";
@@ -91,7 +93,7 @@
             // textpw
             // 
             this.textpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textpw.Location = new System.Drawing.Point(7, 20);
+            this.textpw.Location = new System.Drawing.Point(119, 31);
             this.textpw.Name = "textpw";
             this.textpw.ReadOnly = true;
             this.textpw.Size = new System.Drawing.Size(100, 38);
@@ -101,9 +103,10 @@
             // Cel
             // 
             this.Cel.Controls.Add(this.textdw);
-            this.Cel.Location = new System.Drawing.Point(580, 64);
+            this.Cel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Cel.Location = new System.Drawing.Point(558, 108);
             this.Cel.Name = "Cel";
-            this.Cel.Size = new System.Drawing.Size(116, 69);
+            this.Cel.Size = new System.Drawing.Size(219, 83);
             this.Cel.TabIndex = 3;
             this.Cel.TabStop = false;
             this.Cel.Text = "Docelowa Waga";
@@ -111,7 +114,7 @@
             // textdw
             // 
             this.textdw.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textdw.Location = new System.Drawing.Point(7, 20);
+            this.textdw.Location = new System.Drawing.Point(113, 31);
             this.textdw.Name = "textdw";
             this.textdw.Size = new System.Drawing.Size(100, 38);
             this.textdw.TabIndex = 0;
@@ -120,89 +123,93 @@
             // Calkowityczas
             // 
             this.Calkowityczas.Controls.Add(this.textczas);
+            this.Calkowityczas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Calkowityczas.Location = new System.Drawing.Point(42, 365);
             this.Calkowityczas.Name = "Calkowityczas";
-            this.Calkowityczas.Size = new System.Drawing.Size(155, 56);
+            this.Calkowityczas.Size = new System.Drawing.Size(219, 92);
             this.Calkowityczas.TabIndex = 3;
             this.Calkowityczas.TabStop = false;
             this.Calkowityczas.Text = "Całkowity czas treningu";
             // 
             // textczas
             // 
-            this.textczas.Location = new System.Drawing.Point(7, 20);
+            this.textczas.Location = new System.Drawing.Point(28, 45);
             this.textczas.Name = "textczas";
             this.textczas.ReadOnly = true;
-            this.textczas.Size = new System.Drawing.Size(100, 20);
+            this.textczas.Size = new System.Drawing.Size(140, 23);
             this.textczas.TabIndex = 0;
             this.textczas.TextChanged += new System.EventHandler(this.textczas_TextChanged);
             // 
             // lvl
             // 
             this.lvl.AutoSize = true;
-            this.lvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lvl.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lvl.Location = new System.Drawing.Point(531, 236);
+            this.lvl.Location = new System.Drawing.Point(559, 281);
             this.lvl.Name = "lvl";
-            this.lvl.Size = new System.Drawing.Size(246, 73);
+            this.lvl.Size = new System.Drawing.Size(184, 55);
             this.lvl.TabIndex = 5;
             this.lvl.Text = "Poziom";
             this.lvl.Click += new System.EventHandler(this.label1_Click);
             // 
             // textlvl
             // 
-            this.textlvl.Location = new System.Drawing.Point(544, 385);
+            this.textlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textlvl.Location = new System.Drawing.Point(569, 401);
             this.textlvl.Name = "textlvl";
             this.textlvl.ReadOnly = true;
-            this.textlvl.Size = new System.Drawing.Size(217, 20);
+            this.textlvl.Size = new System.Drawing.Size(208, 23);
             this.textlvl.TabIndex = 6;
             this.textlvl.TextChanged += new System.EventHandler(this.textlvl_TextChanged);
             // 
             // Kalorie
             // 
             this.Kalorie.Controls.Add(this.textkalorie);
-            this.Kalorie.Location = new System.Drawing.Point(231, 365);
+            this.Kalorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Kalorie.Location = new System.Drawing.Point(291, 365);
             this.Kalorie.Name = "Kalorie";
-            this.Kalorie.Size = new System.Drawing.Size(155, 56);
+            this.Kalorie.Size = new System.Drawing.Size(219, 92);
             this.Kalorie.TabIndex = 4;
             this.Kalorie.TabStop = false;
             this.Kalorie.Text = "Suma spalonych kalorii";
             // 
             // textkalorie
             // 
-            this.textkalorie.Location = new System.Drawing.Point(7, 20);
+            this.textkalorie.Location = new System.Drawing.Point(29, 36);
             this.textkalorie.Name = "textkalorie";
             this.textkalorie.ReadOnly = true;
-            this.textkalorie.Size = new System.Drawing.Size(100, 20);
+            this.textkalorie.Size = new System.Drawing.Size(140, 23);
             this.textkalorie.TabIndex = 0;
             this.textkalorie.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // waga
             // 
             this.waga.AutoSize = true;
-            this.waga.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.waga.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.waga.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.waga.Location = new System.Drawing.Point(18, 47);
+            this.waga.Location = new System.Drawing.Point(39, 35);
             this.waga.Name = "waga";
-            this.waga.Size = new System.Drawing.Size(200, 73);
+            this.waga.Size = new System.Drawing.Size(150, 55);
             this.waga.TabIndex = 7;
             this.waga.Text = "Waga";
             // 
             // achiv
             // 
             this.achiv.AutoSize = true;
-            this.achiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.achiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.achiv.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.achiv.Location = new System.Drawing.Point(18, 236);
+            this.achiv.Location = new System.Drawing.Point(39, 281);
             this.achiv.Name = "achiv";
-            this.achiv.Size = new System.Drawing.Size(368, 73);
+            this.achiv.Size = new System.Drawing.Size(274, 55);
             this.achiv.TabIndex = 8;
             this.achiv.Text = "Osiągnięcia";
             // 
             // Nzapisz
             // 
-            this.Nzapisz.Location = new System.Drawing.Point(245, 172);
+            this.Nzapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Nzapisz.Location = new System.Drawing.Point(176, 197);
             this.Nzapisz.Name = "Nzapisz";
-            this.Nzapisz.Size = new System.Drawing.Size(100, 23);
+            this.Nzapisz.Size = new System.Drawing.Size(100, 33);
             this.Nzapisz.TabIndex = 9;
             this.Nzapisz.Text = "Zapisz";
             this.Nzapisz.UseVisualStyleBackColor = true;
@@ -210,9 +217,10 @@
             // 
             // CZapisz
             // 
-            this.CZapisz.Location = new System.Drawing.Point(587, 172);
+            this.CZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CZapisz.Location = new System.Drawing.Point(677, 197);
             this.CZapisz.Name = "CZapisz";
-            this.CZapisz.Size = new System.Drawing.Size(100, 23);
+            this.CZapisz.Size = new System.Drawing.Size(100, 31);
             this.CZapisz.TabIndex = 10;
             this.CZapisz.Text = "Zapisz";
             this.CZapisz.UseVisualStyleBackColor = true;
