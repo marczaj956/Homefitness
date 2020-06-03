@@ -127,6 +127,16 @@ namespace HomeFitness.Controls.TrainingPanel
                 cn.Open();
                 SqlDataAdapter da = new SqlDataAdapter("DELETE from Plan_treningu WHERE Nr_Planu='" + x + "' ", cn);
                 da.SelectCommand.ExecuteNonQuery();
+                int kcal = 0;
+                foreach(ListViewItem item in listView1.Items)
+
+                {
+                    kcal += Convert.ToInt32(item.SubItems[2].Text)* Convert.ToInt32(item.SubItems[5].Text);
+                }
+                
+                SqlDataAdapter dc = new SqlDataAdapter("INSERT INTO Czas (czas.czas,kalorie) VALUES('" + (milliSeocnds/1000).ToString() + "','" + kcal.ToString() + "')", cn);
+                dc.SelectCommand.ExecuteNonQuery();
+
                 cn.Close();
                
                 

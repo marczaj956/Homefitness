@@ -49,11 +49,55 @@ namespace HomeFitness.Controls.AchPanel
                     textdw.Text = dr["Cel"].ToString();
                     
                 }
+                
+
+                //SqlDataAdapter dc = new SqlDataAdapter("INSERT INTO Czas (czas.czas,kalorie) VALUES('" + "3" + "','" + "3" + "')", cn);
+               // dc.SelectCommand.ExecuteNonQuery();
 
 
+                
+                d= new SqlDataAdapter("Select sum(czas) as czas from czas ", cn);
+                d.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    textczas.Text = dr["czas"].ToString();
+
+                }
+
+                d = new SqlDataAdapter("Select sum(kalorie) as kalorie from czas ", cn);
+                d.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    
+                    textkalorie.Text = dr["kalorie"].ToString();
+
+                }
 
 
                 cn.Close();
+
+
+                
+                int czas = Int32.Parse(textczas.Text);
+                int kcal = Int32.Parse(textkalorie.Text);
+                double wartosc = czas * 0.6 + kcal * 0.2;
+                if (wartosc<=100)
+                {
+                    textlvl.Text = "Początkujący";
+                }
+                else if (wartosc > 100 && wartosc<=300)
+                {
+                    textlvl.Text = "Średni";
+                }
+                else if(wartosc>300)
+                {
+                    {
+                        textlvl.Text = "Zaawansowany";
+                    }
+                }
+
+
+
             }
 //do pliku
             {/*        { 
@@ -134,7 +178,8 @@ namespace HomeFitness.Controls.AchPanel
 
         private void textczas_TextChanged(object sender, EventArgs e)
         {
-            //select z bazy
+            
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -151,7 +196,15 @@ namespace HomeFitness.Controls.AchPanel
         private void button1_Click(object sender, EventArgs e)
         {//zapis do pliku brak sprawdzenia poprawności
 
-            if (textnw.Text.Length > 0)
+
+
+
+            if (!Regex.IsMatch(textnw.Text, @"^(?!\s*$).+"))
+            {
+                MessageBox.Show("Nazwa jest pusta!!!!");
+            }
+
+            else if (Regex.IsMatch(textnw.Text, @"^[0-9]*(?:\.[0-9]*)?$"))
             {//do pliku
                 {/*
                 
@@ -193,15 +246,22 @@ namespace HomeFitness.Controls.AchPanel
 
             }
 
-            else MessageBox.Show("Wpisz wagę!");
-
+            
+else
+            {
+                MessageBox.Show("Podaj poprawną wartość np. 85.5");
+            }
 
         }
 
         private void CZapisz_Click(object sender, EventArgs e)
         {//zapis do pliku brak sprawdzenia poprawności
-            if (textdw.Text.Length > 0)
+            if (!Regex.IsMatch(textdw.Text, @"^(?!\s*$).+"))
             {
+                MessageBox.Show("Nazwa jest pusta!!!!");
+            }
+            
+            else if (Regex.IsMatch(textdw.Text, @"^[0-9]*(?:\.[0-9]*)?$")) {
                 
                 float ob = 0;
                 SqlConnection cn = new SqlConnection(conS);
@@ -212,7 +272,10 @@ namespace HomeFitness.Controls.AchPanel
                 MessageBox.Show("Zapisano");
 
             }
-
+            else
+            {
+                MessageBox.Show("Podaj poprawną wartość np. 85.5");
+            }
             //do pliku
 
             /*{
@@ -234,7 +297,7 @@ namespace HomeFitness.Controls.AchPanel
                 
                 MessageBox.Show("Zapisano!");
             }*/
-            else MessageBox.Show("Wpisz wagę!");
+
         }
     }
 }
