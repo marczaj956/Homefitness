@@ -35,6 +35,7 @@
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,12 +78,13 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(217, 164);
+            this.listView1.Location = new System.Drawing.Point(271, 164);
             this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(365, 231);
+            this.listView1.Size = new System.Drawing.Size(254, 231);
             this.listView1.TabIndex = 63;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -91,17 +93,22 @@
             // ID
             // 
             this.ID.Text = "Data";
-            this.ID.Width = 40;
+            this.ID.Width = 73;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Godzina";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 65;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Nr treningu";
-            this.columnHeader2.Width = 113;
+            this.columnHeader2.Width = 55;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Nr planu";
+            this.columnHeader3.Width = 55;
             // 
             // StartTraningControl
             // 
@@ -126,5 +133,6 @@
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

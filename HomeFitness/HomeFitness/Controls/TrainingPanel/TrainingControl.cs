@@ -16,7 +16,8 @@ namespace HomeFitness.Controls.TrainingPanel
 {
     public partial class TrainingControl : UserControl
     {
-        //int x;
+        int x;
+        int x1;
         string conS;
         Stopwatch stopwatch = new Stopwatch();
         int i = 0;
@@ -26,30 +27,27 @@ namespace HomeFitness.Controls.TrainingPanel
             InitializeComponent();
            
         }
-        public TrainingControl(Panel mainPanel)
+        public TrainingControl(Panel mainPanel,string u, string a)
         {
             InitializeComponent();
-
-            _mainPanel1 = mainPanel;
-            conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
-            pobieranietreningu();
-            pokabaze();
-            textBox1.Text = listView1.Items[i].SubItems[1].Text;
-            stopwatch.Start();
+            x = Convert.ToInt32(u);
+            x1 = Convert.ToInt32(a);
+           
+                _mainPanel1 = mainPanel;
+                conS = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
+                pokabaze();
+                textBox1.Text = listView1.Items[i].SubItems[1].Text;
+                stopwatch.Start();
+           
         }
-        private void pobieranietreningu() 
-        { 
-        
-        
-        
-        }
+      
             private void pokabaze() // poka poka baze mi
         {
-
+                 
             SqlConnection cn = new SqlConnection(conS);
             cn.Open();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from cwiczenia where Cwiczenia.Nazwa in (select   nazwa  from Cwiczenia as cw join CwSC on cw.Nr_cwiczenia = CwSC.Cwiczenia_Nr_cwiczenia join SCT on CwSC.Seria_cwiczen_Nr_Serii =SCT.Seria_cwiczen_Nr_Serii join Plan_treningu on Plan_treningu.Treningi_Nr_treningu=sct.Treningi_Nr_treningu where Plan_treningu.Treningi_Nr_treningu=1 group by nazwa)", cn);
+            SqlDataAdapter da = new SqlDataAdapter("select * from cwiczenia where Cwiczenia.Nazwa in (select   nazwa  from Cwiczenia as cw join CwSC on cw.Nr_cwiczenia = CwSC.Cwiczenia_Nr_cwiczenia join SCT on CwSC.Seria_cwiczen_Nr_Serii =SCT.Seria_cwiczen_Nr_Serii join Plan_treningu on Plan_treningu.Treningi_Nr_treningu=sct.Treningi_Nr_treningu where Plan_treningu.Treningi_Nr_treningu='" +x1 +"' group by nazwa)", cn);
             da.Fill(dt);
           
             foreach (DataRow dr in dt.Rows)
@@ -123,14 +121,14 @@ namespace HomeFitness.Controls.TrainingPanel
                 stopwatch.Stop();
                 var milliSeocnds = stopwatch.ElapsedMilliseconds;
                 var timeSpan = stopwatch.Elapsed;
-                MessageBox.Show((milliSeocnds / 1000).ToString());
-               /* 
+                MessageBox.Show("Twój trening trwał: "+(milliSeocnds / 1000).ToString()+ " sekund(y).");
+               
                 SqlConnection cn = new SqlConnection(conS);
                 cn.Open();
                 SqlDataAdapter da = new SqlDataAdapter("DELETE from Plan_treningu WHERE Nr_Planu='" + x + "' ", cn);
                 da.SelectCommand.ExecuteNonQuery();
                 cn.Close();
-               */
+               
                 
             }
           

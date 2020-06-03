@@ -256,5 +256,10 @@ namespace HomeFitness.Controls.exbase
         {
 
         }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
