@@ -40,6 +40,7 @@
             this.cwiczeniaTableAdapter1 = new HomeFitness.bazaDataSetTableAdapters.CwiczeniaTableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.kiedytr = new System.Windows.Forms.Label();
+            this.pomocniczy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -180,10 +181,19 @@
             this.kiedytr.Text = "Początkujący";
             this.kiedytr.Click += new System.EventHandler(this.kiedytr_Click);
             // 
+            // pomocniczy
+            // 
+            this.pomocniczy.Location = new System.Drawing.Point(654, 501);
+            this.pomocniczy.Name = "pomocniczy";
+            this.pomocniczy.Size = new System.Drawing.Size(100, 20);
+            this.pomocniczy.TabIndex = 36;
+            this.pomocniczy.Visible = false;
+            // 
             // MainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pomocniczy);
             this.Controls.Add(this.kiedytr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -197,6 +207,7 @@
             this.Size = new System.Drawing.Size(798, 559);
             this.Load += new System.EventHandler(this.MainControl_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -213,5 +224,6 @@
         private bazaDataSetTableAdapters.CwiczeniaTableAdapter cwiczeniaTableAdapter1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label kiedytr;
+        private System.Windows.Forms.TextBox pomocniczy;
     }
 }

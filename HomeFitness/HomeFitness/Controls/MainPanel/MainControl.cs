@@ -23,33 +23,7 @@ namespace HomeFitness.Controls.MainPanel
             conS1 = ConfigurationManager.ConnectionStrings["HomeFitness.Properties.Settings.bazaConnectionString"].ConnectionString;
             najblizszytrening();
             {
-                SqlConnection cn = new SqlConnection(conS1);
-                cn.Open();
-                DataTable dt = new DataTable();
-                String nr = "1";
-                float cel = 0;
-                float ob = 0;
-
-                SqlDataAdapter d = new SqlDataAdapter("Select Obecna from Waga where Id='" + nr + "' ", cn);
-                d.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    ob = float.Parse(dr["Obecna"].ToString());
-                }
-
-
-
-                SqlDataAdapter dd = new SqlDataAdapter("Select Cel from Waga where Id='" + nr + "' ", cn);
-                dd.Fill(dt);
-                DataTable dtt = new DataTable();
-                foreach (DataRow dr in dtt.Rows)
-                {
-                    cel = float.Parse(dr["Cel"].ToString());
-                }
-
-
-
-                label8.Text = (ob - cel).ToString();
+                
             }
 
 
@@ -73,25 +47,63 @@ namespace HomeFitness.Controls.MainPanel
 
 
 
-            int czas, kalorie;
-            da = new SqlDataAdapter("Select sum(czas.czas) as czas from czas ", cn);
-           
-            da.Fill(dt);
-            
-           
-            
-            czas = int.Parse(dt.Rows[0][0].ToString());
-            da = new SqlDataAdapter("Select sum(kalorie) as kalorie from czas ", cn);
-            da.Fill(dt);
-                     
-            kalorie = int.Parse(dt.Rows[0][0].ToString());
 
            
+            String nr = "1";
+            float cel = 0;
+            float ob = 0;
+
+            SqlDataAdapter d = new SqlDataAdapter("Select Obecna from Waga where Id='" + nr + "' ", cn);
+            d.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                pomocniczy.Text = dr["obecna"].ToString();
+            }
+
+            ob = Int32.Parse(pomocniczy.Text);
+
+            SqlDataAdapter dd = new SqlDataAdapter("Select Cel from Waga where Id='" + nr + "' ", cn);
+            dd.Fill(dt);
+            //DataTable dtt = new DataTable();
+            foreach (DataRow dr in dt.Rows)
+            {
+                pomocniczy.Text = dr["Cel"].ToString();
+            }
+
+            cel = float.Parse(pomocniczy.Text);
+
+            label8.Text = (ob - cel).ToString();
+
+
+          
+            d = new SqlDataAdapter("Select sum(czas) as czas from czas ", cn);
+            d.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+               
+                    pomocniczy.Text = dr["czas"].ToString();
+               
+            }
 
 
 
+
+            int czas = Int32.Parse(pomocniczy.Text);
+             d = new SqlDataAdapter("Select sum(kalorie) as kalorie from czas ", cn);
+            d.Fill(dt);
             
-            double wartosc = czas * 0.6 + kalorie * 0.2;
+            foreach (DataRow dr in dt.Rows)
+            {
+                
+                    pomocniczy.Text = dr["kalorie"].ToString();
+                
+            }
+
+ int kcal = Int32.Parse(pomocniczy.Text);
+
+
+           
+            double wartosc = czas * 0.6 + kcal * 0.2;
             label7.Text = wartosc.ToString();
             if (wartosc <= 100)
             {
@@ -107,13 +119,10 @@ namespace HomeFitness.Controls.MainPanel
                     label5.Text = "Zaawansowany";
                 }
             }
-            
 
-            
+   
 
-
-
- cn.Close();
+            cn.Close();
 
 
 
