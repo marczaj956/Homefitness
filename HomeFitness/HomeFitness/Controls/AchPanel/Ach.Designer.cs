@@ -133,7 +133,7 @@
             // 
             // textczas
             // 
-            this.textczas.Location = new System.Drawing.Point(28, 45);
+            this.textczas.Location = new System.Drawing.Point(21, 36);
             this.textczas.Name = "textczas";
             this.textczas.ReadOnly = true;
             this.textczas.Size = new System.Drawing.Size(140, 23);

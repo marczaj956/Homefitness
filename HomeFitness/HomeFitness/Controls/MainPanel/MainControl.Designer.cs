@@ -188,6 +188,7 @@
             this.pomocniczy.Size = new System.Drawing.Size(100, 20);
             this.pomocniczy.TabIndex = 36;
             this.pomocniczy.Visible = false;
+            this.pomocniczy.TextChanged += new System.EventHandler(this.pomocniczy_TextChanged);
             // 
             // MainControl
             // 

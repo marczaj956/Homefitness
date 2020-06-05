@@ -60,7 +60,7 @@ namespace HomeFitness.Controls.MainPanel
                 pomocniczy.Text = dr["obecna"].ToString();
             }
 
-            ob = Int32.Parse(pomocniczy.Text);
+            ob = float.Parse(pomocniczy.Text);
 
             SqlDataAdapter dd = new SqlDataAdapter("Select Cel from Waga where Id='" + nr + "' ", cn);
             dd.Fill(dt);
@@ -163,6 +163,11 @@ namespace HomeFitness.Controls.MainPanel
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pomocniczy_TextChanged(object sender, EventArgs e)
         {
 
         }
