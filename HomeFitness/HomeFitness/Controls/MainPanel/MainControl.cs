@@ -104,7 +104,7 @@ namespace HomeFitness.Controls.MainPanel
 
            
             double wartosc = czas * 0.6 + kcal * 0.2;
-            label7.Text = wartosc.ToString();
+            label7.Text = wartosc.ToString()+" pkt";
             if (wartosc <= 100)
             {
                 label5.Text = "Początkujący";

@@ -238,9 +238,25 @@ namespace HomeFitness.Controls.AchPanel
                     }
                     SqlDataAdapter da = new SqlDataAdapter("Update Waga SET Poprzednia='" + ob + "' ,Obecna='" + textnw.Text + "'", cn);
                     da.SelectCommand.ExecuteNonQuery();
+
+                     d = new SqlDataAdapter("Select Poprzednia from Waga where Id='" + nr + "' ", cn);
+                    d.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        textpw.Text = dr["Poprzednia"].ToString();
+
+                    }
+
+
                     cn.Close();
                     MessageBox.Show("Zapisano");
                     
+
+
+
+
+
+
                 }
 
 
