@@ -80,14 +80,14 @@ namespace HomeFitness.Controls.AchPanel
                 
                 int czas = Int32.Parse(textczas.Text);
                 int kcal = Int32.Parse(textkalorie.Text);
-                double wartosc = czas * 0.6 + kcal * 0.2;
+                double wartosc = czas * 0.3 + kcal * 0.1;
                 if (wartosc<=100)
                 {
                     textlvl.Text = "Początkujący";
                 }
                 else if (wartosc > 100 && wartosc<=300)
                 {
-                    textlvl.Text = "Średni";
+                    textlvl.Text = "Średniozaawansowany";
                 }
                 else if(wartosc>300)
                 {

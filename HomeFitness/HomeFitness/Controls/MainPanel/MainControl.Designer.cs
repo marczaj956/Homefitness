@@ -95,7 +95,7 @@
             this.label5.Location = new System.Drawing.Point(337, 286);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 29);
+            this.label5.Size = new System.Drawing.Size(260, 29);
             this.label5.TabIndex = 26;
             this.label5.Text = "Początkujący";
             this.label5.Click += new System.EventHandler(this.label5_Click);

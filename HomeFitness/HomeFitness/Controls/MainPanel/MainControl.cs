@@ -103,7 +103,7 @@ namespace HomeFitness.Controls.MainPanel
 
 
            
-            double wartosc = czas * 0.6 + kcal * 0.2;
+            double wartosc = czas * 0.3 + kcal * 0.1;
             label7.Text = wartosc.ToString()+" pkt";
             if (wartosc <= 100)
             {
@@ -111,7 +111,7 @@ namespace HomeFitness.Controls.MainPanel
             }
             else if (wartosc > 100 && wartosc <= 300)
             {
-                label5.Text = "Średni";
+                label5.Text = "Średniozaawansowany";
             }
             else if (wartosc > 300)
             {
